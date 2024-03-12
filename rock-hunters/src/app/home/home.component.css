@@ -1,0 +1,48 @@
+/* Main
+.................................................. */
+.home {
+    text-align: justify;
+}
+
+    .home .content-wrap {
+        max-width: 800px;
+    }
+
+/* Banner */
+.banner {
+    width: 100%;
+    height: 400px;
+}
+
+    .banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /*vertical-align: bottom;*/
+    }
+
+/* Introduction */
+#introduction h2 {
+    color: #006C6C;
+    text-align: center;
+}
+
+#introduction p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 560px;
+    margin: auto;
+}
+
+
+/* Responsive
+-------------------------------------------------- */
+@media screen and (max-width: 600px) {
+    main .content-wrap {
+        padding: 24px 0;
+    }
+
+    h2 {
+        margin-bottom: 12px;
+    }
+}

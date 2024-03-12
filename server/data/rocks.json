@@ -1,0 +1,28 @@
+{
+  "hkgkjhbjhvvhv": {
+    "_id": "hkgkjhbjhvvhv",
+    "name": "Fuchsite",
+    "imageUrl": "fuchsite.jpg",
+    "origin": "Brazil",
+    "length": 47,
+    "height": 30,
+    "width": 14,
+    "weigth": 15.3,
+    "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+    "username": "Peter",
+    "_createdOn": 1613551279012
+  },
+  "8691ef58-26f3-47a9-b79f-10d7699bcb77": {
+    "name": "chrysocolla",
+    "imageUrl": "chrysocolla.jpg",
+    "origin": "Mexico",
+    "length": 64,
+    "height": 20,
+    "width": 19,
+    "weigth": 45,
+    "_id": "8691ef58-26f3-47a9-b79f-10d7699bcb77",
+    "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+    "username": "George",
+    "_createdOn": 1701771773122
+  }
+}

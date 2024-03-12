@@ -1,1 +1,274 @@
-/* You can add global styles to this file, and also import other style files */
+/* @import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap'); */
+
+/* Global
+.................................................. */
+html {
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Resets */
+body, header, main, footer, div, section, nav, p, ul, li, a, h1, h2, h3, h4, h5, h6, img, btn {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 0px;
+    font-family: Dubai;
+    color: #000000;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    /* to keep footer at the bottom (also code in main) */
+    min-height: 100vh;
+}
+
+button, .button {
+    color: #000000;
+    font-size: 0.9rem;
+    font-family: Dubai;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    line-height: normal;
+    padding: 2px 8px;
+    overflow: hidden;
+    background-color: #F2F0F0;
+}
+
+.btn-unset {
+    all: unset;
+    cursor: pointer;
+}
+
+.content-wrap {
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 32px 0;
+    overflow: hidden;
+}
+
+main .content-wrap {
+    padding: 60px 0;
+}
+
+.divider {
+    border-bottom: 1px solid #808080;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-family: 'Rancho', cursive;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+
+h3 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    vertical-align: bottom;
+    object-fit: cover;
+}
+
+a {
+    color: #006A6A;
+}
+
+a:hover {
+    color: #C08497;
+}/* Global
+.................................................. */
+html {
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Resets */
+body, header, main, footer, div, section, nav, p, ul, li, a, h1, h2, h3, h4, h5, h6, img, btn {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 0px;
+    font-family: Dubai;
+    color: #000000;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    /* to keep footer at the bottom (also code in main) */
+    min-height: 100vh;
+}
+
+button, .button {
+    color: #000000;
+    font-size: 0.9rem;
+    font-family: Dubai;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    line-height: normal;
+    padding: 2px 8px;
+    overflow: hidden;
+    background-color: #F2F0F0;
+}
+
+.btn-unset {
+    all: unset;
+    cursor: pointer;
+}
+
+.content-wrap {
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 32px 0;
+    overflow: hidden;
+}
+
+main .content-wrap {
+    padding: 60px 0;
+}
+
+.divider {
+    border-bottom: 1px solid #808080;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-family: 'Rancho', cursive;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+
+h3 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    vertical-align: bottom;
+    object-fit: cover;
+}
+
+a {
+    color: #006A6A;
+}
+
+a:hover {
+    color: #C08497;
+}
+
+
+/* Responsive
+-------------------------------------------------- */
+@media screen and (max-width: 1000px) {
+    header {
+        font-size: 1.1rem;
+    }
+
+    .logo {
+        display: block;
+        position: static;
+        top: unset;
+        left: unset;
+        transform: none;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #004B4B;
+        margin-bottom: 0.8rem;
+    }
+
+    h1 {
+        size: 2rem;
+        letter-spacing: 0;
+    }
+
+    header .content-wrap {
+        padding: 0.8rem 0;
+    }
+
+    .nav-bar {
+        justify-content: center;
+    }
+    
+    .nav-bar ul:first-of-type {
+        margin-right: 30px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* ********** GLOBAL ********** */
+    html {
+        font-size: 16px;
+    }
+
+    /* ********** NAVIGATION ********** */
+    .logo,
+    .page-title {
+        display: none;
+    }
+
+    .nav-bar {
+        text-align: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-bar a {
+        display: block;
+        color: #FFF;
+    }
+
+    .nav-bar ul {
+        margin: 6px 12px !important;
+    }
+
+    .left-nav {
+        padding-bottom: 12px;
+        border-bottom: 1px solid #004B4B;
+    }
+
+    .nav-bar li:not(:last-child) {
+        margin-right: 36px;
+    }
+
+
+    /* ********** FOOTER ********** */
+    footer .content-wrap {
+        padding: 18px 0;
+    }
+}
