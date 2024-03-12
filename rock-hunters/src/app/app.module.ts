@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
+import { RockListComponent } from './rock-list/rock-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    HomeComponent
+    HomeComponent,
+    RockListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
