@@ -1,112 +1,55 @@
 <div class="all-rocks">
 
     <div class="content-wrap">
-        <!-- <h2 class="divider">Rocks</h2> -->
-
         <section class="rock-list">
-            <!-- if any -->
 
-            <div class="rock-box">
+            <!-- if any -->
+            <div *ngFor="let rock of rocks" class="rock-box">
+
                 <div class="rock-img-container">
-                    <a href="rock-details.html"><img src="/public/images/baltic_amber.jpg" class="rock-img" /></a>
+                    <a href="rock-details.html"><img src="../../assets/images/{{rock.imageUrl}}" class="rock-img" /></a>
                 </div>
+
                 <div class="rock-info">
+
                     <div class="rock-name">
-                        <a href="rock-details.html">Baltic amber</a>
+                        <a href="rock-details.html">{{rock.name}}</a>
                     </div>
+
                     <div class="rock-like">
-                        <!-- if !isOwner && notLiked && logedIn -->
-                        <form onSubmit={likeHandler}>
+                        <!-- if !isOwner && !isLiked && isLoggedIn -->
+                        <form *ngIf="!isOwner && !isLiked && isLoggedIn; else cantLike" onSubmit={likeHandler}>
                             <button type="submit" class="btn-unset">
                                 <i class="fas fa-heart"></i> 99
                             </button>
                         </form>
                         <!-- else -->
-                        <!-- <i class="fas fa-heart"></i> 99</> -->
+                        <ng-template #cantLike>
+                            <i class="fas fa-heart"></i> 99
+                        </ng-template>
                     </div>
+
                     <div class="rock-creator">
                         <!-- if isOwner -->
-                        <!-- <a href="#">My rocks</a> -->
+                        <ng-template *ngIf="isOwner; else owner">
+                            <a href="#">My rocks</a>
+                        </ng-template>
                         <!-- else -->
-                        By
-                        <a href="#">
-                            <!-- {rock?.owner?.username} -->
-                            peter@abv.bg
-                        </a>
+                        <ng-template #owner>
+                            By <a href="#">{{rock.username}}</a>
+                        </ng-template>
                     </div>
+
                 </div>
+
             </div>
 
-            <div class="rock-box">
-                <div class="rock-img-container">
-                    <a href="#"><img src="../images/native_copper.jpg" class="rock-img" /></a>
-                </div>
-                <div class="rock-info">
-                    <div class="rock-name">
-                        <a href="#">Native copper</a>
-                    </div>
-                    <div class="rock-like">
-                        <form onSubmit={likeHandler}>
-                            <button type="submit" class="btn-unset">
-                                <i class="fas fa-heart"></i> 99
-                            </button>
-                        </form>
-                    </div>
-                    <div class="rock-creator">
-                        By <a href="#">peter@abv.bg</a>
-                    </div>
-                </div>
+            <!-- if rocks.length === 0 -->
+            <div *ngIf="rocks.length === 0">
+                <h3>Welcome to the rocks page!</h3>
+                <p>There are no rocks found.</p>
+                <p>Please try again later.</p>
             </div>
-
-            <div class="rock-box">
-                <div class="rock-img-container">
-                    <a href="#"><img src="../images/burmesse_amber.jpg" class="rock-img" /></a>
-                </div>
-                <div class="rock-info">
-                    <div class="rock-name">
-                        <a href="#">Burmese amber</a>
-                    </div>
-                    <div class="rock-like">
-                        <form onSubmit={likeHandler}>
-                            <button type="submit" class="btn-unset">
-                                <i class="fas fa-heart"></i> 99
-                            </button>
-                        </form>
-                    </div>
-                    <div class="rock-creator">
-                        By <a href="#">peter@abv.bg</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="rock-box">
-                <div class="rock-img-container">
-                    <a href="#"><img src="../images/velvet_malachite.jpg" class="rock-img" /></a>
-                </div>
-                <div class="rock-info">
-                    <div class="rock-name">
-                        <a href="#">Malachite</a>
-                    </div>
-                    <div class="rock-like">
-                        <form onSubmit={likeHandler}>
-                            <button type="submit" class="btn-unset">
-                                <i class="fas fa-heart"></i> 99
-                            </button>
-                        </form>
-                    </div>
-                    <div class="rock-creator">
-                        By <a href="#">peter@abv.bg</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- else rocks.length === 0 -->
-            <!-- <div>
-                    <h3>Welcome to the rocks page!</h3>
-                    <p>There are no rocks found.</p>
-                    <p>Please try again later.</p>
-                </div> -->
-            <!-- } -->
 
         </section>
     </div>

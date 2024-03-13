@@ -1,6 +1,6 @@
 {
-  "hkgkjhbjhvvhv": {
-    "_id": "hkgkjhbjhvvhv",
+  "3d51d456-df10-4a8c-af4d-41055d26aa87": {
+    "_id": "3d51d456-df10-4a8c-af4d-41055d26aa87",
     "name": "Fuchsite",
     "imageUrl": "fuchsite.jpg",
     "origin": "Brazil",
@@ -13,7 +13,7 @@
     "_createdOn": 1613551279012
   },
   "8691ef58-26f3-47a9-b79f-10d7699bcb77": {
-    "name": "chrysocolla",
+    "name": "Chrysocolla",
     "imageUrl": "chrysocolla.jpg",
     "origin": "Mexico",
     "length": 64,
@@ -22,6 +22,58 @@
     "weigth": 45,
     "_id": "8691ef58-26f3-47a9-b79f-10d7699bcb77",
     "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+    "username": "George",
+    "_createdOn": 1701771773122
+  },
+  "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
+    "_id": "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
+    "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+    "name": "Baltic amber",
+    "imageUrl": "baltic_amber.jpg",
+    "origin": "Baltic region, Poland",
+    "length": 50,
+    "height": 40,
+    "width": 30,
+    "weigth": 12.7,
+    "username": "Peter",
+    "_createdOn": 1613551279012
+  },
+  "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
+    "_id": "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
+    "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+    "name": "Native copper",
+    "imageUrl": "native_copper.jpg",
+    "origin": "Africa",
+    "length": 60,
+    "height": 47,
+    "width": 15,
+    "weigth": 56.0,
+    "username": "Peter",
+    "_createdOn": 1613551344360
+  },
+  "985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
+    "_id": "985d9eab-ad2e-4622-a5c8-116261fb1fd2",
+    "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+    "name": "Burmese amber",
+    "imageUrl": "burmese_amber.jpg",
+    "origin": "Myanmar (Burma)",
+    "length": 120,
+    "height": 70,
+    "width": 50,
+    "weigth": 12.7,
+    "username": "George",
+    "_createdOn": 1613551388703
+  },
+  "004729e7-a074-4fe2-a504-9bd2a1167e16": {
+    "_id": "004729e7-a074-4fe2-a504-9bd2a1167e16",
+    "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+    "name": "Malachite",
+    "imageUrl": "velvet_malachite.jpg",
+    "origin": "China",
+    "length": 50,
+    "height": 30,
+    "width": 20,
+    "weigth": 45.5,
     "username": "George",
     "_createdOn": 1701771773122
   }

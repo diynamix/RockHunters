@@ -1342,6 +1342,7 @@
     var seedData = {
         rocks: {
             "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
+                _id: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 name: "Baltic amber",
                 imageUrl: "baltic_amber.jpg",
@@ -1353,6 +1354,7 @@
                 _createdOn: 1613551279012
             },
             "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
+                _id: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 name: "Native copper",
                 imageUrl: "native_copper.jpg",
@@ -1364,6 +1366,7 @@
                 _createdOn: 1613551344360
             },
             "985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
+                _id: "985d9eab-ad2e-4622-a5c8-116261fb1fd2",
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
                 name: "Burnese amber",
                 imageUrl: "burmese_amber.jpg",
@@ -1375,6 +1378,7 @@
                 _createdOn: 1613551388703
             },
             "004729e7-a074-4fe2-a504-9bd2a1167e16": {
+                _id: "004729e7-a074-4fe2-a504-9bd2a1167e16",
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
                 name: "Malachite",
                 imageUrl: "velvet_malachite.jpg",

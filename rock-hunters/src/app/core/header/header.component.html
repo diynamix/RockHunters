@@ -17,36 +17,30 @@
                             <a href="rock-list.html">Rocks</a>
                         </li>
 
-                        <!-- {isAuthenticated && ( -->
-                        <!-- <li class="nav-item">
+                        <!-- if isLoggedIn -->
+                        <li *ngIf="isLoggedIn" class="nav-item">
                             <a href="favourite.html">Favourite</a>
-                        </li> -->
-                        <!-- )} -->
-
+                        </li>
                     </ul>
                     <ul class="right-nav">
-
-                        <!-- {!isAuthenticated && ( -->
-                        <li class="nav-item">
+                        <!-- if !isLoggedIn -->
+                        <li *ngIf="!isLoggedIn" class="nav-item">
                             <a href="login.html">Login</a>
                         </li>
-                        <li class="nav-item">
+                        <li *ngIf="!isLoggedIn" class="nav-item">
                             <a href="register.html">Register</a>
                         </li>
-                        <!-- )} -->
 
-                        <!-- {isAuthenticated && ( -->
-                        <!-- <li class="nav-item">
+                        <!-- else -->
+                        <li *ngIf="isLoggedIn" class="nav-item">
                             <a href="rock-add.html">Add</a>
                         </li>
-                        <li class="nav-item">
+                        <li *ngIf="isLoggedIn" class="nav-item">
                             <a href="rock-my.html">My Rocks</a>
                         </li>
-                        <li class="nav-item">
+                        <li *ngIf="isLoggedIn" class="nav-item">
                             <a href="#">Logout</a>
-                        </li> -->
-                        <!-- )} -->
-
+                        </li>
                     </ul>
                 </div>
             </div>

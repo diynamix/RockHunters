@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
+import { Rock } from './types/rock';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,6 @@ export class ApiService {
 
   getAllRocks() {
     const {apiUrl} = environment;
-    console.log(apiUrl);
-    return this.http.get(`${apiUrl}/rocks`);
+    return this.http.get<Rock[]>(`${apiUrl}/rocks`);
   }
 }

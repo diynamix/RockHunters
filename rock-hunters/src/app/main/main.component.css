@@ -6,3 +6,24 @@ main {
     /* to keep footer at the bottom (also code in body) */
     flex-grow: 1;
 }
+
+main .content-wrap {
+    padding: 60px 0;
+}
+
+:host {
+    display: contents;
+}
+
+
+/* Responsive
+-------------------------------------------------- */
+@media screen and (max-width: 600px) {
+    main .content-wrap {
+        padding: 24px 0;
+    }
+    
+    h2 {
+        margin-bottom: 12px;
+    }
+}
