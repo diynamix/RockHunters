@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { RockListComponent } from './rock/rock-list/rock-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
