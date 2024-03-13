@@ -11,15 +11,15 @@
                 <div class="nav-bar">
                     <ul class="left-nav">
                         <li class="nav-item">
-                            <a href="index.html">Home</a>
+                            <a routerLink="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="rock-list.html">Rocks</a>
+                            <a routerLink="/rocks">Rocks</a>
                         </li>
 
                         <!-- if isLoggedIn -->
                         <li *ngIf="isLoggedIn" class="nav-item">
-                            <a href="favourite.html">Favourite</a>
+                            <a routerLink="/">Favourite</a>
                         </li>
                     </ul>
                     <ul class="right-nav">

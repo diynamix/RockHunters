@@ -94,11 +94,32 @@ a:hover {
     color: #C08497;
 }
 
+/* main */
+
+main {
+    font-size: 1rem;
+    background-color: #F2F0F0;
+    /* to keep footer at the bottom (also code in body) */
+    flex-grow: 1;
+}
+
+main .content-wrap {
+    padding: 60px 0;
+}
+
 
 /* Responsive
 -------------------------------------------------- */
 @media screen and (max-width: 600px) {
     html {
         font-size: 16px;
+    }
+
+    main .content-wrap {
+        padding: 24px 0;
+    }
+    
+    h2 {
+        margin-bottom: 12px;
     }
 }

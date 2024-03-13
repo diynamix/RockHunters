@@ -1,5 +1,4 @@
-/* Main
-.................................................. */
+/* ********** HOME ********** */
 .home {
     text-align: justify;
 }
@@ -13,13 +12,6 @@
     width: 100%;
     height: 400px;
 }
-
-    .banner img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /*vertical-align: bottom;*/
-    }
 
 /* Introduction */
 #introduction h2 {
