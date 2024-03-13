@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
-import { Rock } from '../types/rock';
-import { RockRecord } from '../types/rock-record';
+import { ApiService } from '../../api.service';
+import { Rock } from '../../types/rock';
+import { RockRecord } from '../../types/rock-record';
 
 @Component({
   selector: 'app-rock-list',

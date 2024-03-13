@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
-import { RockListComponent } from './rock-list/rock-list.component';
+import { RockListComponent } from './rock/rock-list/rock-list.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
