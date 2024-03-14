@@ -5,7 +5,7 @@
 
         <section class="form-section">
 
-            <form id="login-form" onSubmit={onSubmit}>
+            <form id="login-form" action="" method="">
 
                 <fieldset>
 
@@ -13,20 +13,19 @@
 
                     <div class="form-group">
                         <label htmlFor={LoginFormKeys.Email} class="form-label">Email</label>
-                        <input type="email" id="email" name={LoginFormKeys.Email} class="form-control"
-                            placeholder="example@you.com" value={formValues[LoginFormKeys.Email]} onChange={onChange}
-                            required />
+                        <input type="email" id="email" name="email" class="form-control" placeholder="example@you.com"
+                            required #inputEmail />
                     </div>
 
                     <div class="form-group">
                         <label htmlFor={LoginFormKeys.Password} class="form-label">Password</label>
-                        <input type="password" id="password" name={LoginFormKeys.Password} class="form-control"
-                            placeholder="Password" value={formValues[LoginFormKeys.Password]} onChange={onChange}
-                            required />
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                            required #inputPassword />
                     </div>
 
                     <div>
-                        <button id="login-submit" type="submit" class="sbm-btn">Log in</button>
+                        <button id="login-submit" type="submit" class="sbm-btn"
+                            (click)="login($event, inputEmail.value, inputPassword.value)">Log in</button>
                     </div>
                 </fieldset>
 

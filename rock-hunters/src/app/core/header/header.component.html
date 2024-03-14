@@ -39,7 +39,7 @@
                             <a href="#">My Rocks</a>
                         </li>
                         <li *ngIf="isLoggedIn" class="nav-item">
-                            <a href="#">Logout</a>
+                            <a (click)="logout()">Logout</a>
                         </li>
                     </ul>
                 </div>

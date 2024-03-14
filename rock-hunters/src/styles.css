@@ -88,6 +88,7 @@ img {
 
 a {
     text-decoration: none;
+    cursor: pointer;
     color: #006A6A;
 }
 
