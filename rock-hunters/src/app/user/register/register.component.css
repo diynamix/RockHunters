@@ -14,9 +14,9 @@ input, textarea, select {
     width: 100%;
 }
 
-.checkbox input {
+/* .checkbox input {
     width: auto;
-}
+} */
 
 fieldset {
     width: 350px;

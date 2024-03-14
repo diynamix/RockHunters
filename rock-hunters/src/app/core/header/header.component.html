@@ -19,7 +19,7 @@
 
                         <!-- if isLoggedIn -->
                         <li *ngIf="isLoggedIn" class="nav-item">
-                            <a routerLink="/">Favourite</a>
+                            <a href="#">Favourite</a>
                         </li>
                     </ul>
                     <ul class="right-nav">
@@ -33,10 +33,10 @@
 
                         <!-- else -->
                         <li *ngIf="isLoggedIn" class="nav-item">
-                            <a href="rock-add.html">Add</a>
+                            <a routerLink="/rocks/add">Add</a>
                         </li>
                         <li *ngIf="isLoggedIn" class="nav-item">
-                            <a href="rock-my.html">My Rocks</a>
+                            <a href="#">My Rocks</a>
                         </li>
                         <li *ngIf="isLoggedIn" class="nav-item">
                             <a href="#">Logout</a>

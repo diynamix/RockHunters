@@ -1,1 +1,72 @@
-<p>rock-add works!</p>
+<div class="add-rock">
+    <div class="content-wrap">
+        <!-- <h2 class="page-title divider">Add</h2> -->
+
+        <section class="form-section">
+
+            <form class="rock-form" onSubmit={addRockSubmitHandler}>
+                <fieldset>
+                    <legend>Add Rock</legend>
+
+                    <div class="form-group">
+                        <label for="name" class="required">Rock name</label>
+                        <input type="text" id="name" name="name" placeholder="Rock name" required #inputName />
+                        <!-- value="" minLength="" maxLength="" onChange="" onBlur="" class="" -->
+                        <span class="validation-span"></span>
+                        <!-- <p class="error">Theme name is required.</p> -->
+                        <!-- <p class="error">Theme name must be at least 5 characters long.</p> -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imageUrl" class="required">Image link</label>
+                        <input type="text" id="imageUrl" name="imageUrl" placeholder="Image link (file name)" required
+                            #inputImgLink />
+                        <span class="validation-span"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="origin">Origin</label>
+                        <input type="text" id="origin" name="origin" placeholder="Country or region" #inputOrigin />
+                        <span class="validation-span"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="length" class="required">Length (mm)</label>
+                        <input type="text" id="length" name="length" placeholder="Rock length in mm" required
+                            #inputLength />
+                        <span class="validation-span"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="height" class="required">Height (mm)</label>
+                        <input type="text" id="height" name="height" placeholder="Rock height in mm" required
+                            #inputHeight />
+                        <span class="validation-span"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="width" class="required">Width (mm)</label>
+                        <input type="text" id="width" name="width" placeholder="Rock width in mm" required
+                            #inputWidth />
+                        <span class="validation-span"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weigth" class="required">Weigth (grams)</label>
+                        <input type="text" id="weigth" name="weigth" placeholder="Rock weigth in grams" required
+                            #inputWeigth />
+                        <span class="validation-span"></span>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="button sbm-btn">Add Rock</button>
+                        <!-- <button type="button" onClick={resetFormHandler} class="button sbm-btn">Reset</button> -->
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </section>
+
+    </div>
+</div>

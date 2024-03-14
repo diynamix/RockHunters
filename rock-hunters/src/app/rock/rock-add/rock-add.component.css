@@ -1,1 +1,97 @@
 /* ********** ROCK ADD ********** */
+
+.form-section {
+    display: flex;
+    justify-content: center;
+}
+
+input, textarea, select {
+    font-size: 16px;
+    padding: 4px;
+    background-color: #f7f7f7;
+    border: 1.4px solid black;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* .checkbox input {
+    width: auto;
+} */
+
+fieldset {
+    width: 350px;
+    padding: 20px;
+    border: 1.5px solid #87ACB0;
+    border-radius: 4px;
+}
+
+    fieldset legend {
+        font-size: 24px;
+        font-weight: 500;
+        color: #87ACB0;
+        text-align: center;
+    }
+
+    fieldset div:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    fieldset div:nth-last-child(2) {
+        margin-bottom: 40px;
+    }
+
+.form-group > * {
+    display: block;
+}
+
+.required::after {
+    content: " \002A";
+    color: #C08497;
+}
+
+.sbm-btn {
+    min-width: 50%;
+    display: block;
+    font-size: 18px;
+    background-color: #CADEE0;
+    padding: 2px 20px;
+    border-color: #87ACB0;
+    margin: auto;
+    cursor: pointer;
+}
+
+    .sbm-btn:hover {
+        background-color: #5bbdc7;
+    }
+    
+/* .login-register-switch {
+    text-align: center;
+    margin-top: 30px;
+} */
+
+.validation-span {
+    font-size: 0.9rem;
+    line-height: 1;
+    margin-top: 6px;
+    color: #DC3545;
+}
+
+.validation-error-field {
+    border-color: #DC3545;
+}
+
+
+/* Responsive
+-------------------------------------------------- */
+@media screen and (max-width: 405px) {
+    fieldset {
+        width: 100%;
+        border-right: none;
+        border-left: none;
+        border-radius: 0%;
+    }
+
+        fieldset legend {
+            font-size: 22px;
+        }
+}
