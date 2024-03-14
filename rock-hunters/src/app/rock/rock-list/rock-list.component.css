@@ -1,4 +1,4 @@
-/* ********** Rock-List ********** */
+/* ********** ROCK LIST ********** */
 
 .rock-list {
     display: grid;
@@ -93,21 +93,8 @@
 }
 
 
-/* ********** WISHLIST COLORS ********** */
-/* .wishlist .rock-box {
-    border-color: #C08497;
-}
-
-.wishlist .rock-img img {
-    border-color: #C08497;
-}
-
-.wishlist .rock-name a {
-    color: #C08497;
-} */
-
-
-/* ********** RESPONSIVE ********** */
+/* Responsive
+-------------------------------------------------- */
 
 @media screen and (max-width: 1090px) {
     .rock-list {

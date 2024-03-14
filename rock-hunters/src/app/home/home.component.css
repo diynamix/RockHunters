@@ -1,11 +1,12 @@
 /* ********** HOME ********** */
+
 .home {
     text-align: justify;
 }
 
-    .home .content-wrap {
-        max-width: 800px;
-    }
+.content-wrap {
+    max-width: 800px;
+}
 
 /* Banner */
 .banner {
@@ -14,12 +15,12 @@
 }
 
 /* Introduction */
-#introduction h2 {
+h2 {
     color: #006C6C;
     text-align: center;
 }
 
-#introduction p {
+p {
     font-size: 1.1rem;
     text-align: center;
     max-width: 560px;

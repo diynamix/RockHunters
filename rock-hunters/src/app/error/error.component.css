@@ -1,0 +1,29 @@
+/* ********** ERROR ********** */
+
+.error {
+    text-align: center;
+}
+
+h2 {
+    font-size: 6rem;
+    font-family: 'Rancho', cursive;
+    font-weight: 400;
+    letter-spacing: 12px;
+    line-height: 1;
+    color: #30b9b9;
+    margin: 0 0 20px 0;
+}
+
+div {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+p {
+    font-style: italic;
+}
+
+a {
+    color: #30b9b9;
+}
