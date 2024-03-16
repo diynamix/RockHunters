@@ -11,15 +11,20 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getAllRocks() {
-    const {apiUrl} = environment;
+    const { apiUrl } = environment;
     return this.http.get<Rock[]>(`${apiUrl}/rocks`);
+  }
+
+  createRock(rock : {}) {
+    const { apiUrl } = environment;
+    return this.http.post<Rock>(`${apiUrl}/rocks`, rock);
   }
 
 
   // LIKES ----------
 
   getAllLikes() {
-    const {apiUrl} = environment;
+    const { apiUrl } = environment;
     return this.http.get<Like[]>(`${apiUrl}/likes`);
   }
 }

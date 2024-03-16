@@ -4,7 +4,7 @@
 
         <section class="form-section">
 
-            <form class="rock-form" onSubmit={addRockSubmitHandler}>
+            <form class="rock-form" method="post">
                 <fieldset>
                     <legend>Add Rock</legend>
 
@@ -20,7 +20,7 @@
                     <div class="form-group">
                         <label for="imageUrl" class="required">Image link</label>
                         <input type="text" id="imageUrl" name="imageUrl" placeholder="Image link (file name)" required
-                            #inputImgLink />
+                            #inputImageUrl />
                         <span class="validation-span"></span>
                     </div>
 
@@ -59,7 +59,15 @@
                     </div>
 
                     <div>
-                        <button type="submit" class="button sbm-btn">Add Rock</button>
+                        <button type="submit" class="button sbm-btn" (click)="addRock($event, {
+                            name: inputName.value,
+                            imageUrl: inputImageUrl.value,
+                            origin: inputOrigin.value,
+                            length: inputLength.value,
+                            height: inputHeight.value,
+                            width: inputWidth.value,
+                            weigth: inputWeigth.value
+                        })">Add Rock</button>
                         <!-- <button type="button" onClick={resetFormHandler} class="button sbm-btn">Reset</button> -->
                     </div>
 
