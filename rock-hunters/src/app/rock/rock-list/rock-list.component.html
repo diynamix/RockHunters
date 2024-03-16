@@ -20,12 +20,12 @@
                         <!-- if !isOwner && !isLiked && isLoggedIn -->
                         <form *ngIf="!isOwner && !isLiked && isLoggedIn; else cantLike" onSubmit={likeHandler}>
                             <button type="submit" class="btn-unset">
-                                <i class="fas fa-heart"></i> 99
+                                <i class="fas fa-heart"></i> {{rock.likes}}
                             </button>
                         </form>
                         <!-- else -->
                         <ng-template #cantLike>
-                            <i class="fas fa-heart"></i> 99
+                            <i class="fas fa-heart"></i> {{rock.likes}}
                         </ng-template>
                     </div>
 

@@ -1401,14 +1401,14 @@
         },
         likes: {
             "2b77d7ed-2463-45f6-a988-7dff3d604153": {
+                _id: "2b77d7ed-2463-45f6-a988-7dff3d604153",
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-                rockId: "985d9eab-ad2e-4622-a5c8-116261fb1fd2",
-                _createdOn: 1701982361223
+                rockId: "985d9eab-ad2e-4622-a5c8-116261fb1fd2"
             },
             "1af18c09-9f72-4a82-a937-41e952734f61": {
+                _id: "1af18c09-9f72-4a82-a937-41e952734f61",
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-                rockId: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
-                _createdOn: 1701982370079
+                rockId: "3987279d-0ad4-4afb-8ca9-5b256ae3b298"
             }
         },
     };

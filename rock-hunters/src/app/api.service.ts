@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
+import { Like } from './types/like';
 import { Rock } from './types/rock';
 
 @Injectable({
@@ -12,5 +13,13 @@ export class ApiService {
   getAllRocks() {
     const {apiUrl} = environment;
     return this.http.get<Rock[]>(`${apiUrl}/rocks`);
+  }
+
+
+  // LIKES ----------
+
+  getAllLikes() {
+    const {apiUrl} = environment;
+    return this.http.get<Like[]>(`${apiUrl}/likes`);
   }
 }

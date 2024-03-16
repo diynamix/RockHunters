@@ -9,5 +9,6 @@ export interface Rock {
     weigth: number,
     _ownerId: string,
     username: string,
-    _createdOn: number
+    _createdOn: number,
+    likes: number
 }
