@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
@@ -10,8 +11,11 @@ import { UserService } from '../user.service';
 export class LoginComponent {
   constructor(private userService: UserService, private router:Router) {}
 
-  login(event: Event, email: string, password: string) {
-    event.preventDefault();
+  login(form: NgForm) {
+    // event.preventDefault();
+    if (form.invalid) {
+      return;
+    }
     this.userService.login();
     this.router.navigate(['/home']);
   }
