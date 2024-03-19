@@ -5,46 +5,70 @@
 
         <section class="form-section">
 
-            <form id="login-form" onSubmit={onSubmit}>
+            <form id="login-form" [formGroup]="form" (ngSubmit)="register()">
 
                 <fieldset>
 
                     <legend>Register</legend>
 
                     <div class="form-group">
-                        <label htmlFor={RegisterFormKeys.Username} class="form-label required">Username</label>
-                        <input type="text" id="firstName" name={RegisterFormKeys.Username}
-                            value={formValues[RegisterFormKeys.Username]} class="form-control" onChange={onChange}
-                            required />
-                        <span class="validation-span">error</span>
+                        <label for="username" class="form-label required">Username</label>
+                        <input type="text" id="username" name="username" class="form-control" required
+                            formControlName="username" />
+                        <ng-container *ngIf="form.get('username')?.touched">
+                            <span *ngIf="form.get('username')?.errors?.['required']" class="validation-span">Password is
+                                required!</span>
+                            <span *ngIf="form.get('username')?.errors?.['minlength']" class="validation-span">Username
+                                must be at lest 5 characters!</span>
+                        </ng-container>
                     </div>
 
                     <div class="form-group">
-                        <label htmlFor={RegisterFormKeys.Email} class="form-label required">Email</label>
-                        <input type="email" id="email" name={RegisterFormKeys.Email}
-                            value={formValues[RegisterFormKeys.Email]} class="form-control" onChange={onChange}
-                            required />
-                        <span class="validation-span">error</span>
+                        <label for="email" class="form-label required">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required
+                            formControlName="email" />
+                        <ng-container *ngIf="form.get('email')?.touched">
+                            <span *ngIf="form.get('email')?.errors?.['required']" class="validation-span">Email is
+                                required!</span>
+                        </ng-container>
                     </div>
 
-                    <div class="form-group">
-                        <label htmlFor={RegisterFormKeys.Password} class="form-label required">Password</label>
-                        <input type="password" id="password" name={RegisterFormKeys.Password}
-                            value={formValues[RegisterFormKeys.Password]} class="form-control" onChange={onChange}
-                            required />
-                        <span class="validation-span">error</span>
-                    </div>
+                    <ng-container formGroupName="passGroup">
 
-                    <div class="form-group">
-                        <label htmlFor={RegisterFormKeys.ConfirmPassword} class="form-label required">Confirm
-                            password</label>
-                        <input type="password" id="confirmPassword" name={RegisterFormKeys.ConfirmPassword}
-                            value={formValues[RegisterFormKeys.ConfirmPassword]} class="form-control"
-                            onChange={onChange} onBlur={passwordValidator} required />
-                    </div>
+                        <div class="form-group">
+                            <label for="password" class="form-label required">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" minlength="5"
+                                required formControlName="password" />
+
+                            <ng-container *ngIf="passGroup?.get('password')?.touched">
+                                <span *ngIf="passGroup?.get('password')?.errors?.['required']"
+                                    class=" validation-span">Password is
+                                    required!</span>
+                                <span *ngIf="passGroup?.get('password')?.errors?.['minlength']"
+                                    class="validation-span">Password must be
+                                    at lest 5 characters!</span>
+                            </ng-container>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rePassword" class="form-label required">Confirm password</label>
+                            <input type="password" id="rePassword" name="rePassword" class="form-control" required
+                                formControlName="rePassword" />
+
+                            <ng-container *ngIf="passGroup?.get('rePassword')?.touched">
+                                <span *ngIf="passGroup?.get('rePassword')?.errors?.['required']"
+                                    class="validation-span">Confirm password is required!</span>
+                                <span
+                                    *ngIf="passGroup?.errors?.['matchPasswordsValidator'] && !(passGroup?.get('rePassword')?.errors?.['required'])"
+                                    class="validation-span">
+                                    Password and confirm password do not match!</span>
+                            </ng-container>
+                        </div>
+
+                    </ng-container>
 
                     <div>
-                        <button id="login-submit" type="submit" class="sbm-btn">Register</button>
+                        <button id="login-submit" class="sbm-btn">Register</button>
                     </div>
                 </fieldset>
 
