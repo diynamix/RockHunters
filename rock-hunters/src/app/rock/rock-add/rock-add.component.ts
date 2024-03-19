@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
-import { Rock } from 'src/app/types/rock';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-rock-add',
@@ -8,10 +7,18 @@ import { Rock } from 'src/app/types/rock';
   styleUrls: ['./rock-add.component.css']
 })
 export class RockAddComponent {
-  constructor(private apiService: ApiService) {}
+  // constructor(private apiService: ApiService) {}
 
-  addRock(event: Event, rock: {}) {
-    event.preventDefault();
-    this.apiService.createRock(rock).subscribe((data) => console.log({data}));
+  addRock(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+
+    console.log(form.value);
   }
+
+  // addRock(event: Event, rock: {}) {
+  //   event.preventDefault();
+  //   this.apiService.createRock(rock).subscribe((data) => console.log({data}));
+  // }
 }

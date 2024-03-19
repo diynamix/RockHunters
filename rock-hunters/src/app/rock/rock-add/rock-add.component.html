@@ -4,70 +4,94 @@
 
         <section class="form-section">
 
-            <form class="rock-form" method="post">
+            <form class="rock-form" #form="ngForm">
                 <fieldset>
                     <legend>Add Rock</legend>
 
                     <div class="form-group">
                         <label for="name" class="required">Rock name</label>
-                        <input type="text" id="name" name="name" placeholder="Rock name" required #inputName />
-                        <!-- value="" minLength="" maxLength="" onChange="" onBlur="" class="" -->
-                        <span class="validation-span"></span>
-                        <!-- <p class="error">Theme name is required.</p> -->
-                        <!-- <p class="error">Theme name must be at least 5 characters long.</p> -->
+                        <input type="text" id="name" name="name" placeholder="Rock name" required #inputName="ngModel"
+                            ngModel minlength="5" maxLength="" />
+                        <ng-container *ngIf="inputName.touched">
+                            <span *ngIf="inputName?.errors?.['required']" class="validation-span">Rock name is
+                                required.</span>
+                            <span *ngIf="inputName?.errors?.['minlength']" class="validation-span">Rock name must be at
+                                least 5 characters long!</span>
+                        </ng-container>
                     </div>
 
                     <div class="form-group">
                         <label for="imageUrl" class="required">Image link</label>
                         <input type="text" id="imageUrl" name="imageUrl" placeholder="Image link (file name)" required
-                            #inputImageUrl />
-                        <span class="validation-span"></span>
+                            #inputImageUrl="ngModel" ngModel minLength="5" />
+                        <ng-container *ngIf="inputImageUrl.touched">
+                            <span *ngIf="inputImageUrl?.errors?.['required']" class="validation-span">Image Url name is
+                                required.</span>
+                            <span *ngIf="inputImageUrl?.errors?.['minLength']" class="validation-span">Image Url name
+                                must be at least 5 characters long!</span>
+                        </ng-container>
                     </div>
 
                     <div class="form-group">
                         <label for="origin">Origin</label>
-                        <input type="text" id="origin" name="origin" placeholder="Country or region" #inputOrigin />
-                        <span class="validation-span"></span>
+                        <input type="text" id="origin" name="origin" placeholder="Country or region"
+                            #inputOrigin="ngModel" ngModel minlength="5" />
+                        <ng-container *ngIf="inputOrigin.touched">
+                            <span *ngIf="inputOrigin?.errors?.['minlength']" class="validation-span">Place of origin
+                                must be at least 5 characters long!</span>
+                        </ng-container>
                     </div>
 
                     <div class="form-group">
                         <label for="length" class="required">Length (mm)</label>
-                        <input type="text" id="length" name="length" placeholder="Rock length in mm" required
-                            #inputLength />
-                        <span class="validation-span"></span>
+                        <input type="number" id="length" name="length" placeholder="Rock length in mm" required
+                            #inputLength="ngModel" ngModel min="0" />
+                        <ng-container *ngIf="inputLength.touched">
+                            <span *ngIf="inputLength?.errors?.['required']" class="validation-span">Rock length is
+                                required.</span>
+                            <span *ngIf="inputLength?.errors?.['min']" class="validation-span">Rock length cannot be
+                                less than 0!</span>
+                        </ng-container>
                     </div>
 
                     <div class="form-group">
                         <label for="height" class="required">Height (mm)</label>
-                        <input type="text" id="height" name="height" placeholder="Rock height in mm" required
-                            #inputHeight />
-                        <span class="validation-span"></span>
+                        <input type="number" id="height" name="height" placeholder="Rock height in mm" required
+                            #inputHeight="ngModel" ngModel min="0" />
+                        <ng-container *ngIf="inputHeight.touched">
+                            <span *ngIf="inputHeight?.errors?.['required']" class="validation-span">Rock height is
+                                required.</span>
+                            <span *ngIf="inputHeight?.errors?.['min']" class="validation-span">Rock height cannot
+                                be less than 0!</span>
+                        </ng-container>
                     </div>
 
                     <div class="form-group">
                         <label for="width" class="required">Width (mm)</label>
-                        <input type="text" id="width" name="width" placeholder="Rock width in mm" required
-                            #inputWidth />
-                        <span class="validation-span"></span>
+                        <input type="number" id="width" name="width" placeholder="Rock width in mm" required
+                            #inputWidth="ngModel" ngModel min="0" />
+                        <ng-container *ngIf="inputWidth.touched">
+                            <span *ngIf="inputWidth?.errors?.['required']" class="validation-span">Rock width is
+                                required.</span>
+                            <span *ngIf="inputWidth?.errors?.['min']" class="validation-span">Rock width cannot be
+                                less than 0!</span>
+                        </ng-container>
                     </div>
 
                     <div class="form-group">
                         <label for="weigth" class="required">Weigth (grams)</label>
-                        <input type="text" id="weigth" name="weigth" placeholder="Rock weigth in grams" required
-                            #inputWeigth />
-                        <span class="validation-span"></span>
+                        <input type="number" id="weigth" name="weigth" placeholder="Rock weigth in grams" required
+                            #inputWeigth="ngModel" ngModel min="0" />
+                        <ng-container *ngIf="inputWeigth.touched">
+                            <span *ngIf="inputWeigth?.errors?.['required']" class="validation-span">Rock weigth is
+                                required.</span>
+                            <span *ngIf="inputWeigth?.errors?.['min']" class="validation-span">Rock weigth cannot be
+                                less than 0!</span>
+                        </ng-container>
                     </div>
 
                     <div>
-                        <button type="submit" class="button sbm-btn" (click)="addRock($event, {
-                            name: inputName.value,
-                            imageUrl: inputImageUrl.value,
-                            origin: inputOrigin.value,
-                            length: inputLength.value,
-                            height: inputHeight.value,
-                            width: inputWidth.value,
-                            weigth: inputWeigth.value
-                        })">Add Rock</button>
+                        <button type="submit" class="button sbm-btn" (click)="addRock(form)">Add Rock</button>
                         <!-- <button type="button" onClick={resetFormHandler} class="button sbm-btn">Reset</button> -->
                     </div>
 

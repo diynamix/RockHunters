@@ -4,6 +4,7 @@ import { RockListComponent } from './rock-list/rock-list.component';
 import { RockAddComponent } from './rock-add/rock-add.component';
 import { RockDetailsComponent } from './rock-details/rock-details.component';
 import { RockRoutingModule } from './rock-routing-module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { RockRoutingModule } from './rock-routing-module';
   ],
   imports: [
     CommonModule,
-    RockRoutingModule
+    RockRoutingModule,
+    FormsModule,
   ]
 })
 export class RockModule { }
