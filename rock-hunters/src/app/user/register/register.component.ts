@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 import { matchPasswordsValidator } from './match-passwords-validator';
 
 @Component({
@@ -10,7 +12,7 @@ import { matchPasswordsValidator } from './match-passwords-validator';
 export class RegisterComponent {
   form = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(5)]],
-    email: ['george@abv.bg', [Validators.required]],
+    email: ['', [Validators.required]],
     passGroup: this.fb.group({
       password: ['', [Validators.required]],
       rePassword: ['', [Validators.required]]
@@ -24,13 +26,26 @@ export class RegisterComponent {
     return this.form.get('passGroup');
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {}
 
   register(): void {
     if (this.form.invalid) {
       return;
     }
 
-    console.log(this.form.value);
+    const {username, email, passGroup: {password, rePassword} = {}} = this.form.value;
+
+    this.userService.register(email!, password!, username!).subscribe((res) => {
+      const user = {
+        _id: res._id,
+        email: res.email,
+        username: res.username,
+        accessToken: res.accessToken,
+      };
+
+      localStorage.setItem('user', JSON.stringify(user));
+      
+      this.router.navigate(['/rocks']);
+    });
   }
 }

@@ -1,40 +1,57 @@
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { User } from '../types/user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService implements OnDestroy {
+  private user$$ = new BehaviorSubject<User | undefined>(undefined);
+  private user$ = this.user$$.asObservable();
+
+  userSubscription: Subscription;
+
   user: User | undefined;
   USER_KEY = '[user]';
+  apiUrl = 'http://localhost:3030/users';
 
   get isLogged(): boolean {
+    console.log('lsLogged: ' + this.user);
     return !!this.user;
   }
-
-  constructor() {
-    try {
-      const lsUser = localStorage.getItem(this.USER_KEY) || '';
-      this.user = JSON.parse(lsUser);
-    } catch (err) {
-      this.user = undefined;
-      // localStorage.removeItem(this.USER_KEY);
-    }
+  
+  constructor(private http: HttpClient) {
+    this.userSubscription = this.user$.subscribe(user => {
+      console.log('Constructor: ' + this.user);
+      this.user = user;
+    });
   }
 
-  login() {
-    this.user = {
-      _id: '01e068f9-7e70-4dc4-b15f-7124f7357fb9',
-      email: 'pinko@panther.pink',
-      username: 'Pinko',
-      password: '123'
-    }
-
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  login(email: string, password: string) {
+    return this.http
+      .post<User>(`${this.apiUrl}/login`, {email, password})
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
+  
+  register(email: string, password: string, username: string) {
+    return this.http
+      .post<User>(`${this.apiUrl}/register`, {email, password, username})
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 
   logout() {
-    this.user = undefined;
-    localStorage.removeItem(this.USER_KEY);
+    const token = localStorage.getItem('accessToken');
+    const headers = new HttpHeaders()
+      .set('content-type','application/json')
+      .set('X-Authorization', `${token}` );
+
+    return this.http
+      .get(`${this.apiUrl}/logout`, { headers })
+      .pipe(tap(() => this.user$$.next(undefined)));
+  }
+
+  ngOnDestroy(): void {
+      this.userSubscription.unsubscribe();
   }
 }

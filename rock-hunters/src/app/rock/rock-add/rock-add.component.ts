@@ -13,8 +13,6 @@ export class RockAddComponent {
     if (form.invalid) {
       return;
     }
-
-    console.log(form.value);
   }
 
   // addRock(event: Event, rock: {}) {

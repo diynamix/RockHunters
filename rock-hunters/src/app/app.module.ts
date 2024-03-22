@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { RockModule } from './rock/rock.module';
 import { ErrorComponent } from './error/error.component';
+import { AppInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ErrorComponent } from './error/error.component';
     // AppRoutingModule stay at bottom
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AppInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
