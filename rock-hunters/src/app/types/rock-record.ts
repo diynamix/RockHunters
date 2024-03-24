@@ -1,5 +1,5 @@
-import { Rock } from "./rock"
+import { RockListType } from "./rock"
 
 export interface RockRecord {
-    [key:string]: Rock,
+    [key:string]: RockListType,
 }

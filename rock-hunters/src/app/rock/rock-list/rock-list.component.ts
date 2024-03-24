@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Like } from 'src/app/types/like';
 import { UserService } from 'src/app/user/user.service';
 import { ApiService } from '../../api.service';
-import { Rock } from '../../types/rock';
+import { RockListType } from '../../types/rock';
 
 @Component({
   selector: 'app-rock-list',
@@ -10,33 +9,29 @@ import { Rock } from '../../types/rock';
   styleUrls: ['./rock-list.component.css']
 })
 export class RockListComponent implements OnInit {
-  constructor(private api: ApiService, private userServic: UserService) {}
-
+  constructor(private api: ApiService, private userService: UserService) {}
+  
+  // const isOwner = userId === recipe['_ownerId'];
   isOwner = false;
   isLiked = false;
 
-  rocks: Rock[] = [];
-  likes: Like[] = [];
+  rocks: RockListType[] = [];
 
   get isLoggedIn(): boolean {
-    return this.userServic.isLogged;
+    return this.userService.isLogged;
   }
 
   get userId(): string {
-    return this.userServic.user?._id || '';
+    return this.userService.user?._id || '';
   }
   
   ngOnInit(): void {
-    this.api.getAllLikes().subscribe((likes) => {
-      this.likes = Object.values(likes);
-    });
-
     this.api.getAllRocks().subscribe((rocks) => {
       this.rocks = Object.values(rocks).map(rock => {
-        rock.likes = this.likes.filter((like) => like['rockId'] === rock._id).length;
+        this.api.getAllLikesByRockId(rock._id).subscribe((likesCount) => rock.likes = likesCount);
+        console.log(rock);
         return rock;
       });
     });
-
   }
 }

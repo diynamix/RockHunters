@@ -1,4 +1,4 @@
-export interface Rock {
+export interface RockListType {
     _id: string,
     name: string,
     imageUrl: string,
@@ -11,4 +11,9 @@ export interface Rock {
     username: string,
     _createdOn: number,
     likes: number
+    owner: {
+        email: string,
+        username: string,
+        _id: string,
+    }
 }

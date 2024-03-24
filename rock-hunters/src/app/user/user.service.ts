@@ -17,13 +17,11 @@ export class UserService implements OnDestroy {
   apiUrl = 'http://localhost:3030/users';
 
   get isLogged(): boolean {
-    console.log('lsLogged: ' + this.user);
     return !!this.user;
   }
   
   constructor(private http: HttpClient) {
     this.userSubscription = this.user$.subscribe(user => {
-      console.log('Constructor: ' + this.user);
       this.user = user;
     });
   }
