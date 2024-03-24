@@ -7,13 +7,17 @@ import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RockModule } from './rock/rock.module';
-import { ErrorComponent } from './error/error.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { AppInterceptorProvider } from './app.interceptor';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { ErrorComponent } from './core/error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    NotFoundComponent,
+    AuthenticationComponent,
     ErrorComponent,
   ],
   imports: [

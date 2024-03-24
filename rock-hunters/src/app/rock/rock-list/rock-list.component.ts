@@ -29,7 +29,6 @@ export class RockListComponent implements OnInit {
     this.api.getAllRocks().subscribe((rocks) => {
       this.rocks = Object.values(rocks).map(rock => {
         this.api.getAllLikesByRockId(rock._id).subscribe((likesCount) => rock.likes = likesCount);
-        console.log(rock);
         return rock;
       });
     });

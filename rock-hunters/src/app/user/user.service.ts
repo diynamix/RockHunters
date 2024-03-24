@@ -49,6 +49,18 @@ export class UserService implements OnDestroy {
       .pipe(tap(() => this.user$$.next(undefined)));
   }
 
+  getUser() {
+    const token = localStorage.getItem('accessToken');
+
+    const headers = new HttpHeaders()
+      .set('content-type','application/json')
+      .set('X-Authorization', `${token}` );
+
+    return this.http
+      .get<User>(`${this.apiUrl}/me`, { headers })
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
+
   ngOnDestroy(): void {
       this.userSubscription.unsubscribe();
   }

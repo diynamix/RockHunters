@@ -19,6 +19,6 @@ export class HeaderComponent {
       next: () => this.router.navigate(['/auth/login']),
       error: () => this.router.navigate(['/auth/login']),
     });
-    localStorage.removeItem('user');
+    localStorage.removeItem('accessToken');
   }
 }

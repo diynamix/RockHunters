@@ -35,16 +35,12 @@ export class RegisterComponent {
 
     const {username, email, passGroup: {password, rePassword} = {}} = this.form.value;
 
-    this.userService.register(email!, password!, username!).subscribe((res) => {
-      const user = {
-        _id: res._id,
-        email: res.email,
-        username: res.username,
-        accessToken: res.accessToken,
-      };
+    if (password !== rePassword) {
+      return;
+    }
 
-      localStorage.setItem('user', JSON.stringify(user));
-      
+    this.userService.register(email!, password!, username!).subscribe((res) => {
+      localStorage.setItem('accessToken', res.accessToken!);
       this.router.navigate(['/rocks']);
     });
   }

@@ -19,8 +19,7 @@ export class LoginComponent {
     const {email, password} = form.value;
 
     this.userService.login(email, password).subscribe((res) => {
-      localStorage.setItem('user', JSON.stringify(res));
-      localStorage.setItem('accessToken', res.accessToken);
+      localStorage.setItem('accessToken', res.accessToken!);
       this.router.navigate(['/rocks']);
     });
   }
