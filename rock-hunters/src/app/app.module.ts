@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserModule } from './user/user.module';
 import { RockModule } from './rock/rock.module';
 import { ErrorComponent } from './error/error.component';
 import { AppInterceptorProvider } from './app.interceptor';
@@ -21,7 +20,6 @@ import { AppInterceptorProvider } from './app.interceptor';
     BrowserModule,
     CoreModule,
     HttpClientModule,
-    UserModule,
     RockModule,
     // AppRoutingModule stay at bottom
     AppRoutingModule,

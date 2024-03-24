@@ -16,8 +16,8 @@ export class HeaderComponent {
 
   logout() {
     this.userService.logout().subscribe({
-      next: () => this.router.navigate(['/login']),
-      error: () => this.router.navigate(['/login']),
+      next: () => this.router.navigate(['/auth/login']),
+      error: () => this.router.navigate(['/auth/login']),
     });
     localStorage.removeItem('user');
   }
