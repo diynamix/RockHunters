@@ -8,7 +8,6 @@ export interface RockListType {
     width: number,
     weigth: number,
     _ownerId: string,
-    username: string,
     _createdOn: number,
     likes: number
     owner: {
@@ -16,4 +15,14 @@ export interface RockListType {
         username: string,
         _id: string,
     }
+}
+
+export interface RockAddType {
+    name: string,
+    imageUrl: string,
+    origin: string,
+    length: number,
+    height: number,
+    width: number,
+    weigth: number,
 }

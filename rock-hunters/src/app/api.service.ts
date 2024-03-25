@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { RockListType } from './types/rock';
+import { RockAddType, RockListType } from './types/rock';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,15 @@ export class ApiService {
 
   createRock(rock : {}) {
     const { apiUrl } = environment;
-    return this.http.post<RockListType>(`${apiUrl}/rocks`, rock);
+    const token = localStorage.getItem('accessToken');
+
+    const headers = new HttpHeaders()
+      .set('content-type','application/json')
+      .set('X-Authorization', `${token}` );
+
+    const body = JSON.stringify(rock);
+
+    return this.http.post<RockAddType>(`${apiUrl}/rocks`, body, { headers });
   }
 
 
