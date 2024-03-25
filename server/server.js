@@ -1347,10 +1347,10 @@
                 name: "Baltic amber",
                 imageUrl: "baltic_amber.jpg",
                 origin: "Baltic region, Poland",
-                length: 50,
-                height: 40,
-                width: 30,
-                weigth: 12.7,
+                length: 5,
+                height: 4,
+                width: 3,
+                weigth: 12,
                 _createdOn: 1613551279012
             },
             "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
@@ -1359,10 +1359,10 @@
                 name: "Native copper",
                 imageUrl: "native_copper.jpg",
                 origin: "Africa",
-                length: 60,
-                height: 47,
-                width: 15,
-                weigth: 56.0,
+                length: 6,
+                height: 4.7,
+                width: 1.5,
+                weigth: 56,
                 _createdOn: 1613551344360
             },
             "985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
@@ -1371,10 +1371,10 @@
                 name: "Burnese amber",
                 imageUrl: "burmese_amber.jpg",
                 origin: "Myanmar (Burma)",
-                length: 120,
-                height: 70,
-                width: 50,
-                weigth: 12.7,
+                length: 12,
+                height: 7,
+                width: 5,
+                weigth: 13,
                 _createdOn: 1613551388703
             },
             "004729e7-a074-4fe2-a504-9bd2a1167e16": {
@@ -1383,10 +1383,10 @@
                 name: "Malachite",
                 imageUrl: "velvet_malachite.jpg",
                 origin: "China",
-                length: 50,
-                height: 30,
-                width: 20,
-                weigth: 45.5,
+                length: 5,
+                height: 3,
+                width: 2,
+                weigth: 45,
                 _createdOn: 1701771773122
             }
         },
