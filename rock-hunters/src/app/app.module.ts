@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AppInterceptorProvider } from './app.interceptor';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { ErrorComponent } from './core/error/error.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ErrorComponent } from './core/error/error.component';
   imports: [
     BrowserModule,
     CoreModule,
+    SharedModule,
     HttpClientModule,
     RockModule,
     // AppRoutingModule stay at bottom

@@ -13,7 +13,7 @@
                 <div class="rock-info">
 
                     <div class="rock-name">
-                        <a href="rock-details.html">{{rock.name}}</a>
+                        <a href="rock-details.html">{{rock.name | slice : 20}}</a>
                     </div>
 
                     <div class="rock-like">
@@ -36,7 +36,7 @@
                         </ng-template>
                         <!-- else -->
                         <ng-template #owner>
-                            By <a href="#">{{rock?.owner?.username}}</a>
+                            By <a href="#">{{rock.owner.username}}</a>
                         </ng-template>
                     </div>
 

@@ -5,6 +5,7 @@ import { RockAddComponent } from './rock-add/rock-add.component';
 import { RockDetailsComponent } from './rock-details/rock-details.component';
 import { RockRoutingModule } from './rock-routing-module';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RockRoutingModule,
+    SharedModule,
     FormsModule,
   ]
 })
