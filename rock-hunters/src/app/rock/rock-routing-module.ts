@@ -20,8 +20,7 @@ const routes: Routes = [
         },
         // RockDetails path MUST stay after RockAdd path
         {
-            path: ':rockId',
-            component: RockDetailsComponent
+            path: ':rockId', component: RockDetailsComponent
         },
     ],
     },

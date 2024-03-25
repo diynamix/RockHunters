@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { RockAddType, RockListType } from './types/rock';
+import { RockAddType, Rock } from './types/rock';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,18 @@ export class ApiService {
 
     const { apiUrl } = environment;
     
-    return this.http.get<RockListType[]>(`${apiUrl}/rocks?${query}`);
+    return this.http.get<Rock[]>(`${apiUrl}/rocks?${query}`);
   }
+
+  getRockByRockId(rockId: string) {
+    const { apiUrl } = environment;
+    
+    const query = new URLSearchParams({
+        load: `owner=_ownerId:users`,
+    });
+
+    return this.http.get<Rock>(`${apiUrl}/rocks/${rockId}?${query}`);
+};
 
   createRock(rock : {}) {
     const { apiUrl } = environment;

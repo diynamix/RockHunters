@@ -17,6 +17,6 @@ export const rockConstraints = {
     widthMinValue: 0.1,
     widthMaxValue: 50,
 
-    weigthMinValue: 1,
-    weigthMaxValue: 10000,
+    weightMinValue: 1,
+    weightMaxValue: 10000,
 };

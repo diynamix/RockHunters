@@ -1,1 +1,71 @@
-<p>rock-details works!</p>
+<div class="rock-details">
+    <div class="content-wrap">
+        <!-- <h2 class="page-title divider">Baltic amber</h2> -->
+
+        <div class="rock-details-box">
+            <div class="rock-details-img-container">
+                <img src="../../assets/images/{{rock.imageUrl}}" class="rock-details-img" alt="Rock Image" />
+            </div>
+
+            <div class="rock-details-info">
+                <div class="rock-details-name">
+                    {{rock.name}}
+                </div>
+                <div class="rock-details-like-creator">
+                    <div class="rock-like rock-details-like">
+                        <!-- if isLogged && !isOwner -->
+
+                        <!-- if likeId -->
+                        <!-- <button type="submit" onClick={likeHandler} class="liked btn-unset"> -->
+                        <!-- else -->
+                        <button type="submit" onClick={likeHandler} class="btn-unset">
+                            <i class="fas fa-heart"></i> {{rock.likes}}
+                        </button>
+
+                        <!-- else -->
+                        <!-- <i class="fas fa-heart"></i> {{rock.likes}} -->
+                    </div>
+                    <div class="rock-creator rock-details-creator">
+                        <!-- if isOwner -->
+                        <!-- <a href="#">My rocks</a> -->
+                        <!-- else -->
+                        By <a href="#">{{rock.owner.username}}</a>
+                    </div>
+                </div>
+
+                <table>
+                    <tr>
+                        <td>Name:</td>
+                        <td class="bold">{{rock.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Origin:</td>
+                        <td class="bold">{{rock.origin}}</td>
+                    </tr>
+                    <tr>
+                        <td>Size:</td>
+                        <td class="bold">{{rock.length}} x {{rock.width}} x {{rock.height}} cm</td>
+                    </tr>
+                    <tr>
+                        <td>Weight:</td>
+                        <td class="bold">{{rock.weight}} g</td>
+                    </tr>
+                </table>
+
+                <!-- if isOwner -->
+                <div class="rock-details-btns">
+                    <a href="#" class="edit-btn button">Edit</a>
+                    <button onClick={deleteButtonClickHandler} class="delete-btn button">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="rock-details-links">
+            <a routerLink="/rocks">All rocks</a>
+            <!-- if isOwner -->
+            <!-- <a href="#" class="author-link">
+                Authors's rocks
+            </a> -->
+        </div>
+    </div>
+</div>

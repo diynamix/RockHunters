@@ -93,16 +93,16 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="weigth" class="required">Weigth (grams)</label>
-                        <input type="number" id="weigth" name="weigth" placeholder="17" required #inputWeigth="ngModel"
-                            ngModel min="{{constraints.weigthMinValue}}" max="{{constraints.weigthMaxValue}}" />
-                        <ng-container *ngIf="inputWeigth.touched">
-                            <span *ngIf="inputWeigth?.errors?.['required']" class="validation-span">Rock weigth is
+                        <label for="weight" class="required">weight (grams)</label>
+                        <input type="number" id="weight" name="weight" placeholder="17" required #inputWeight="ngModel"
+                            ngModel min="{{constraints.weightMinValue}}" max="{{constraints.weightMaxValue}}" />
+                        <ng-container *ngIf="inputWeight.touched">
+                            <span *ngIf="inputWeight?.errors?.['required']" class="validation-span">Rock weight is
                                 required.</span>
-                            <span *ngIf="inputWeigth?.errors?.['min'] || inputLength?.errors?.['max']"
-                                class="validation-span">Rock weigth must be
-                                between {{constraints.weigthMinValue}} and
-                                {{constraints.weigthMaxValue}}!</span>
+                            <span *ngIf="inputWeight?.errors?.['min'] || inputLength?.errors?.['max']"
+                                class="validation-span">Rock weight must be
+                                between {{constraints.weightMinValue}} and
+                                {{constraints.weightMaxValue}}!</span>
                         </ng-container>
                     </div>
 

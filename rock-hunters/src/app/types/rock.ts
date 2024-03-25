@@ -1,4 +1,4 @@
-export interface RockListType {
+export interface Rock {
     _id: string,
     name: string,
     imageUrl: string,
@@ -6,7 +6,7 @@ export interface RockListType {
     length: number,
     height: number,
     width: number,
-    weigth: number,
+    weight: number,
     _ownerId: string,
     _createdOn: number,
     likes: number
@@ -24,5 +24,5 @@ export interface RockAddType {
     length: number,
     height: number,
     width: number,
-    weigth: number,
+    weight: number,
 }

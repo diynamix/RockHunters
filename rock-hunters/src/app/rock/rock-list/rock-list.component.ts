@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user/user.service';
 import { ApiService } from '../../api.service';
-import { RockListType } from '../../types/rock';
+import { Rock } from '../../types/rock';
 
 @Component({
   selector: 'app-rock-list',
@@ -9,13 +9,13 @@ import { RockListType } from '../../types/rock';
   styleUrls: ['./rock-list.component.css']
 })
 export class RockListComponent implements OnInit {
-  constructor(private api: ApiService, private userService: UserService) {}
+  constructor(private apiService: ApiService, private userService: UserService) {}
   
   // const isOwner = userId === recipe['_ownerId'];
   isOwner = false;
   isLiked = false;
 
-  rocks: RockListType[] = [];
+  rocks: Rock[] = [];
 
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
@@ -26,9 +26,9 @@ export class RockListComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.api.getAllRocks().subscribe((rocks) => {
+    this.apiService.getAllRocks().subscribe((rocks) => {
       this.rocks = Object.values(rocks).map(rock => {
-        this.api.getAllLikesByRockId(rock._id).subscribe((likesCount) => rock.likes = likesCount);
+        this.apiService.getAllLikesByRockId(rock._id).subscribe((likesCount) => rock.likes = likesCount);
         return rock;
       });
     });

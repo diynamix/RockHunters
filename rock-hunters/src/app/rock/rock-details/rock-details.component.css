@@ -1,1 +1,163 @@
 /* ********** ROCK DETAILS ********** */
+
+.rock-details .content-wrap {
+    max-width: 800px;
+}
+
+.rock-details-box {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 0 40px 0;
+}
+
+.rock-details-img-container, .rock-details-info {
+    float: right;
+    width: 49%;
+}
+
+
+/* Rock img */
+.rock-details-img {
+    min-height: auto;
+    vertical-align: bottom;
+    object-fit: cover;
+    border: 1px solid #006A6A;
+    border-radius: 4px;
+}
+
+
+/* Rock Info */
+
+.rock-details-info {
+    padding: 0 12px;
+    vertical-align: top;
+}
+
+.rock-details-name {
+    padding: 0 0 0 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #006A6A;
+    letter-spacing: 1px;
+    margin: 0 0 6px;
+}
+
+
+/* like & creator */
+
+.rock-details-like-creator {
+    font-size: 0.9rem;
+    margin: 0 0 30px 0;
+    font-style: italic;
+}
+
+.rock-details-like, .rock-details-creator {
+    display: inline-block;
+}
+
+/* rock like */
+
+.rock-details-like {
+    color: #a7babd;
+    margin: 0 20px 0 12px;
+}
+
+.rock-details-like i {
+    margin: 0 0 0 2px;
+}
+
+.liked {
+    color: #C08497 !important;
+}
+
+    
+.rock-details-like button {
+    color: #87ACB0;
+}
+    
+.rock-details-like button:hover {
+    color: #C08497;
+}
+
+/* rock creator */
+
+.rock-details-creator a {
+    color: #000000;
+    text-decoration: underline;
+}
+
+
+/* Rock details */
+
+.bold {
+    font-weight: 700;
+}
+
+/* table */
+table {
+    border-collapse: collapse;
+}
+
+tr:not(:last-child) {
+    border-bottom: 1px solid;
+}
+
+td {
+    padding: 6px 12px;
+}
+
+
+/* Rock Buttons */
+
+.rock-details-btns {
+    padding: 0 0 0 12px;
+    margin: 30px 0 0 0;
+}
+
+.rock-details-btns .button {
+    display: inline-block;
+    overflow: unset;
+    font-size: 1rem;
+    width: 65px;
+}
+
+.edit-btn {
+    margin-right: 30px;
+}
+
+.edit-btn:hover {
+    color: #3b8e96;
+}
+
+.delete-btn:hover {
+    color: #DC3545;
+}
+
+
+@media screen and (max-width: 800px) {
+    .rock-details-img-container, .rock-details-info {
+        float: none;
+    }
+    
+    .rock-details-info {
+        margin: auto;
+        width: fit-content;
+    }
+    
+    .rock-details-img-container {
+        width: 80%;
+        margin: 0 auto 20px;
+    }
+
+    .rock-details-name, .rock-details-like-creator, .rock-details-btns {
+        text-align: center;
+        padding: 0;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .rock-details-name {
+        font-size: 1.2rem;
+    }
+}

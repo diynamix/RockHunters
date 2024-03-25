@@ -7,7 +7,7 @@
     "length": 4.7,
     "height": 3,
     "width": 1.4,
-    "weigth": 15,
+    "weight": 15,
     "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
     "username": "Peter",
     "_createdOn": 1613551279012
@@ -19,7 +19,7 @@
     "length": 6.4,
     "height": 2,
     "width": 1.9,
-    "weigth": 45,
+    "weight": 45,
     "_id": "8691ef58-26f3-47a9-b79f-10d7699bcb77",
     "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
     "username": "George",
@@ -34,7 +34,7 @@
     "length": 5,
     "height": 4,
     "width": 3,
-    "weigth": 12,
+    "weight": 12,
     "username": "Peter",
     "_createdOn": 1613551279012
   },
@@ -47,7 +47,7 @@
     "length": 6,
     "height": 4.7,
     "width": 1.5,
-    "weigth": 56,
+    "weight": 56,
     "username": "Peter",
     "_createdOn": 1613551344360
   },
@@ -60,7 +60,7 @@
     "length": 12,
     "height": 7,
     "width": 5,
-    "weigth": 13,
+    "weight": 13,
     "username": "George",
     "_createdOn": 1613551388703
   },
@@ -73,7 +73,7 @@
     "length": 5,
     "height": 3,
     "width": 2,
-    "weigth": 45,
+    "weight": 45,
     "username": "George",
     "_createdOn": 1701771773122
   }

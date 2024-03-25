@@ -1350,7 +1350,7 @@
                 length: 5,
                 height: 4,
                 width: 3,
-                weigth: 12,
+                weight: 12,
                 _createdOn: 1613551279012
             },
             "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
@@ -1362,7 +1362,7 @@
                 length: 6,
                 height: 4.7,
                 width: 1.5,
-                weigth: 56,
+                weight: 56,
                 _createdOn: 1613551344360
             },
             "985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
@@ -1374,7 +1374,7 @@
                 length: 12,
                 height: 7,
                 width: 5,
-                weigth: 13,
+                weight: 13,
                 _createdOn: 1613551388703
             },
             "004729e7-a074-4fe2-a504-9bd2a1167e16": {
@@ -1386,7 +1386,7 @@
                 length: 5,
                 height: 3,
                 width: 2,
-                weigth: 45,
+                weight: 45,
                 _createdOn: 1701771773122
             }
         },
