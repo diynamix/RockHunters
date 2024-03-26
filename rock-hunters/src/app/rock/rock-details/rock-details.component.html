@@ -13,17 +13,22 @@
                 </div>
                 <div class="rock-details-like-creator">
                     <div class="rock-like rock-details-like">
-                        <!-- if isLogged && !isOwner -->
+                        <!-- if isLoggedIn && !isOwner -->
+                        <ng-container *ngIf="isLoggedIn && !isOwner">
+                            <!-- if likeId -->
+                            <button *ngIf="likeId" type="submit" (click)="likeHandler()" class="liked btn-unset">
+                                <i class="fas fa-heart"></i> {{likesCount}}
+                            </button>
+                            <!-- else -->
+                            <button *ngIf="!likeId" type="submit" (click)="likeHandler()" class="btn-unset">
+                                <i class="fas fa-heart"></i> {{likesCount}}
+                            </button>
+                        </ng-container>
 
-                        <!-- if likeId -->
-                        <!-- <button type="submit" onClick={likeHandler} class="liked btn-unset"> -->
                         <!-- else -->
-                        <button type="submit" onClick={likeHandler} class="btn-unset">
-                            <i class="fas fa-heart"></i> {{rock.likes}}
-                        </button>
-
-                        <!-- else -->
-                        <!-- <i class="fas fa-heart"></i> {{rock.likes}} -->
+                        <ng-container *ngIf="!(isLoggedIn && !isOwner)">
+                            <i class="fas fa-heart"></i> {{likesCount}}
+                        </ng-container>
                     </div>
                     <div class="rock-creator rock-details-creator">
                         <!-- if isOwner -->
@@ -53,7 +58,7 @@
                 </table>
 
                 <!-- if isOwner -->
-                <div class="rock-details-btns">
+                <div *ngIf="isOwner" class="rock-details-btns">
                     <a href="#" class="edit-btn button">Edit</a>
                     <button onClick={deleteButtonClickHandler} class="delete-btn button">Delete</button>
                 </div>
@@ -62,10 +67,6 @@
 
         <div class="rock-details-links">
             <a routerLink="/rocks">All rocks</a>
-            <!-- if isOwner -->
-            <!-- <a href="#" class="author-link">
-                Authors's rocks
-            </a> -->
         </div>
     </div>
 </div>

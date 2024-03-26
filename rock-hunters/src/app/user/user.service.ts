@@ -52,9 +52,13 @@ export class UserService implements OnDestroy {
   getUser() {
     const token = localStorage.getItem('accessToken');
 
+    if (!token) {
+      
+    }
+
     const headers = new HttpHeaders()
       .set('content-type','application/json')
-      .set('X-Authorization', `${token}` );
+      .set('X-Authorization', `${token}` );      
 
     return this.http
       .get<User>(`${this.apiUrl}/me`, { headers })

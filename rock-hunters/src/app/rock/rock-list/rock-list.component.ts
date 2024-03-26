@@ -11,8 +11,6 @@ import { Rock } from '../../types/rock';
 export class RockListComponent implements OnInit {
   constructor(private apiService: ApiService, private userService: UserService) {}
   
-  // const isOwner = userId === recipe['_ownerId'];
-  isOwner = false;
   isLiked = false;
 
   rocks: Rock[] = [];
@@ -24,13 +22,18 @@ export class RockListComponent implements OnInit {
   get userId(): string {
     return this.userService.user?._id || '';
   }
+
+  isOwner(_ownerId: string) {
+    return this.userId === _ownerId;
+  }
+
+  // isLiked(_ownerId: string) {}
   
   ngOnInit(): void {
     this.apiService.getAllRocks().subscribe((rocks) => {
-      this.rocks = Object.values(rocks).map(rock => {
-        this.apiService.getAllLikesByRockId(rock._id).subscribe((likesCount) => rock.likes = likesCount);
-        return rock;
-      });
+      this.rocks = Object.values(rocks);
+        // .map(rock => { return rock;});
+      // this.apiService.getAllLikesByRockId(rock._id).subscribe((likesCount) => rock.likes = likesCount);
     });
   }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
-import { Rock as Rock } from 'src/app/types/rock';
+import { Rock } from 'src/app/types/rock';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-rock-details',
@@ -9,17 +10,64 @@ import { Rock as Rock } from 'src/app/types/rock';
   styleUrls: ['./rock-details.component.css']
 })
 export class RockDetailsComponent implements OnInit {
-  rock = {} as Rock;
+  rock = {
+    imageUrl: 'template.jpg',
+    owner: {
+        username: '',
+    },
+  } as Rock;
+  likeId: string | undefined;
+  likesCount = 0;
+
+  constructor(private apiService: ApiService, private activeRoute: ActivatedRoute, private userService: UserService) {}
+
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
+  }
+
+  get isOwner(): boolean {
+    return this.userId === this.rock._ownerId;
+  }
   
-  constructor(private apiService: ApiService, private activeRoute: ActivatedRoute) {}
+  get userId(): string {
+    return this.userService.user?._id || '';
+  }
+
+  likeHandler() {
+    if (!this.isLoggedIn || this.isOwner) {
+      return;
+    }
+
+    try {
+        if (!this.likeId) {
+          this.apiService.like(this.rock._id).subscribe();
+        } else {
+          this.apiService.unlike(this.likeId).subscribe();
+        }
+
+        this.setLikes();
+    } catch (err) {
+        alert('Error. Please try again.');
+    }
+  };
+
+  setLikes() {
+    this.apiService.getLikeId(this.userId, this.rock._id).subscribe((likes) => {
+      this.likeId = likes.find(like => like?._ownerId === this.userId)?._id;
+    });
+    
+    this.apiService.getAllLikesByRockId(this.rock._id).subscribe((likesCount) => {
+      this.likesCount = likesCount
+    });
+  }
   
   ngOnInit(): void {
     this.activeRoute.params.subscribe((data) => {
-      const rockId = data['rockId'];
+      const rockId = data['rockId'];      
       
       this.apiService.getRockByRockId(rockId).subscribe((rock) => {
-        this.apiService.getAllLikesByRockId(rock._id).subscribe((likesCount) => rock.likes = likesCount);
         this.rock = rock;
+        this.setLikes();
       });
     });
   }

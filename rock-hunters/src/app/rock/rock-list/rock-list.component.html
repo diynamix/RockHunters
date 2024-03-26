@@ -16,28 +16,28 @@
                         <a [routerLink]="rock._id">{{rock.name | slice : 20}}</a>
                     </div>
 
-                    <div class="rock-like">
-                        <!-- if !isOwner && !isLiked && isLoggedIn -->
+                    <!-- <div class="rock-like">
+                        if !isOwner && !isLiked && isLoggedIn
                         <form *ngIf="!isOwner && !isLiked && isLoggedIn; else cantLike" onSubmit={likeHandler}>
                             <button type="submit" class="btn-unset">
                                 <i class="fas fa-heart"></i> {{rock.likes}}
                             </button>
                         </form>
-                        <!-- else -->
+                        else
                         <ng-template #cantLike>
                             <i class="fas fa-heart"></i> {{rock.likes}}
                         </ng-template>
-                    </div>
+                    </div> -->
 
                     <div class="rock-creator">
                         <!-- if isOwner -->
-                        <ng-template *ngIf="isOwner; else owner">
+                        <ng-container *ngIf="isOwner(rock._ownerId)">
                             <a href="#">My rocks</a>
-                        </ng-template>
+                        </ng-container>
                         <!-- else -->
-                        <ng-template #owner>
+                        <ng-container *ngIf="!isOwner(rock._ownerId)">
                             By <a href="#">{{rock.owner.username}}</a>
-                        </ng-template>
+                        </ng-container>
                     </div>
 
                 </div>
