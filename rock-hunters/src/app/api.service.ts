@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { RockAddType, Rock, RockForEdit } from './types/rock';
+import { RockAddType, Rock, RockForEdit, RockFavouriteType } from './types/rock';
 import { Like } from './types/like';
 
 const { apiUrl } = environment;
@@ -30,7 +30,7 @@ export class ApiService {
         load: `owner=_ownerId:users`,
     });
    
-    return this.http.get<Rock[]>(`${rockUrl}?${query}`);
+    return this.http.get<Rock[]>(`${rockUrl}?${query}&sortBy=_createdOn%20desc`);
   }
 
   getRockByRockId(rockId: string) {  
@@ -43,6 +43,16 @@ export class ApiService {
 
   getRockForEditByRockId(rockId: string) {  
     return this.http.get<RockForEdit>(`${rockUrl}/${rockId}`);
+  };
+
+  getFavouriteRocks(userId: string) {
+    const query = new URLSearchParams({
+        where: `_ownerId="${userId}"`,
+        load: `rock=rockId:rocks`,
+        // sortBy: `_createdOn desc`
+    });
+
+    return this.http.get<RockFavouriteType>(`${likeUrl}?${query}&sortBy=_createdOn%20desc`);
   };
 
   createRock(rock: RockAddType) {
@@ -98,11 +108,14 @@ export class ApiService {
     });
 
     return this.http.get<Like[]>(`${likeUrl}?${query}`);
-
-    // const isSubscribedUser = theme.subscribers.find((s) => {
-    //   return s === this.userService.user?.id;
+    
+    // const searchParams = new URLSearchParams({
+    //   where: `rockId="${rockId} AND _ownerId="${userId}"`,
+    //   select: `_id`,
     // });
 
-    // return !!isSubscribedUser;
+    // const query = `where=rockId%3D%22${rockId}%22%20AND%20_ownerId%3D%22${userId}%22`
+
+    // return this.http.get<string>(`${likeUrl}?${searchParams}&${query}`);
   }
 }

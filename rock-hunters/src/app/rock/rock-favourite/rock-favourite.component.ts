@@ -4,11 +4,11 @@ import { ApiService } from '../../api.service';
 import { Rock } from '../../types/rock';
 
 @Component({
-  selector: 'app-rock-list',
-  templateUrl: './rock-list.component.html',
-  styleUrls: ['./rock-list.component.css']
+  selector: 'app-rock-favourite',
+  templateUrl: './rock-favourite.component.html',
+  styleUrls: ['./rock-favourite.component.css']
 })
-export class RockListComponent implements OnInit {
+export class RockFavouriteComponent implements OnInit {
   constructor(private apiService: ApiService, private userService: UserService) {}
   
   isLiked = false;
@@ -28,8 +28,8 @@ export class RockListComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.apiService.getAllRocks().subscribe((rocks) => {
-      this.rocks = Object.values(rocks);
+    this.apiService.getFavouriteRocks(this.userId).subscribe((rocks) => {
+      this.rocks = Object.values(rocks).map(r => r.rock);
     });
   }
 }

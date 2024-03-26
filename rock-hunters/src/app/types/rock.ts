@@ -39,3 +39,23 @@ export interface RockAddType {
     width: number,
     weight: number,
 }
+
+export interface RockFavouriteType {
+    _ownerId: string,
+    rockId: string,
+    _createdOn: number,
+    _id: string,
+    rock: {
+        name: string,
+        imageUrl: string,
+        origin: string,
+        length: number,
+        height: number,
+        width: number,
+        weight: number,
+        _id: string,
+        _createdOn: number,
+        _updatedOn: number,
+        _ownerId: string,
+    }
+}

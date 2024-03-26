@@ -1,0 +1,118 @@
+/* ********** ROCK LIST ********** */
+
+.rock-list {
+    display: grid;
+    /* justify-content: center; */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px 18px;
+    line-height: 1.2;
+}
+
+.rock-box {
+    width: 100%;
+    min-width: 230px;
+    border: 1px solid #87ACB0;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+/* Rock img */
+.rock-img-container {
+    aspect-ratio: 1/1;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #87ACB0;
+}
+
+.rock-img {
+    transition: 0.1s ease;
+}
+
+.rock-img:hover {
+    opacity: 0.8;
+    transition: 0.1s ease;
+}
+
+/* rock-info */
+.rock-info {
+    line-height: 1;
+    padding: 0 12px;
+    margin-bottom: 12px;
+}
+
+/* rock name */
+
+.rock-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+    .rock-name a {
+        color: #87ACB0;
+        text-decoration: none;
+    }
+
+    .rock-name a:hover {
+        text-decoration: underline;
+    }
+
+/* like & creator */
+
+.rock-like, .rock-creator {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* rock like */
+    
+.rock-like {
+    color: #a7babd;
+    margin: 0 16px 0 0;
+}
+    
+.rock-like button {
+    color: #87ACB0;
+}
+    
+.rock-like button:hover {
+    color: #C08497;
+}
+
+/* rock creator */
+
+.rock-creator a {
+    color: #000000;
+}
+
+.rock-creator a:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive
+-------------------------------------------------- */
+
+@media screen and (max-width: 1090px) {
+    .rock-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .rock-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .rock-list {
+        grid-template-columns: none;
+    }
+
+    .all-rocks .content-wrap {
+        width: 85%;
+    }
+}

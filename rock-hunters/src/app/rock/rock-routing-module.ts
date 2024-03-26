@@ -4,6 +4,7 @@ import { AuthActivate } from "../guards/auth.activate";
 import { RockAddComponent } from "./rock-add/rock-add.component";
 import { RockDetailsComponent } from "./rock-details/rock-details.component";
 import { RockEditComponent } from "./rock-edit/rock-edit.component";
+import { RockFavouriteComponent } from "./rock-favourite/rock-favourite.component";
 import { RockListComponent } from "./rock-list/rock-list.component";
 
 
@@ -14,6 +15,11 @@ const routes: Routes = [
                 path: '',
                 pathMatch: 'full',
                 component: RockListComponent
+            },
+            {
+                path: 'favourite',
+                component: RockFavouriteComponent,
+                canActivate: [AuthActivate]
             },
             {
                 path: 'add',
