@@ -45,7 +45,9 @@
                     </tr> -->
                     <tr>
                         <td>Origin:</td>
-                        <td class="bold">{{rock.origin}}</td>
+                        <td class="bold">
+                            <div>{{rock.origin}}</div>
+                        </td>
                     </tr>
                     <tr>
                         <td>Size:</td>
@@ -60,7 +62,7 @@
                 <!-- if isOwner -->
                 <div *ngIf="isOwner" class="rock-details-btns">
                     <a routerLink="edit" class="edit-btn button">Edit</a>
-                    <button onClick={deleteButtonClickHandler} class="delete-btn button">Delete</button>
+                    <button (click)="delete()" class="delete-btn button">Delete</button>
                 </div>
             </div>
         </div>

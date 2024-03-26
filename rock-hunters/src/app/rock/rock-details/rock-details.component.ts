@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Rock } from 'src/app/types/rock';
 import { UserService } from 'src/app/user/user.service';
@@ -19,7 +19,7 @@ export class RockDetailsComponent implements OnInit {
   likeId: string | undefined;
   likesCount = 0;
 
-  constructor(private apiService: ApiService, private activeRoute: ActivatedRoute, private userService: UserService) {}
+  constructor(private apiService: ApiService, private activeRoute: ActivatedRoute, private userService: UserService, private router: Router) {}
 
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
@@ -60,6 +60,16 @@ export class RockDetailsComponent implements OnInit {
       this.likesCount = likesCount
     });
   }
+
+  delete() {
+    const hasConfirmed = confirm(`Are you sure you want to delete ${this.rock.name}`);
+
+    if (hasConfirmed) {
+      this.apiService.deleteRock(this.rock._id).subscribe();
+      this.router.navigate(['/rocks']);
+    }
+  }
+
   
   ngOnInit(): void {
     this.activeRoute.params.subscribe((data) => {

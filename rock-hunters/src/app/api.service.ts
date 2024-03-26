@@ -59,7 +59,13 @@ export class ApiService {
     const body = JSON.stringify(rock);
 
     return this.http.put<RockAddType>(`${rockUrl}/${rockId}`, body, { headers });
-};
+  };
+
+  deleteRock(rockId: string) {
+    const headers = this.getHeaders();
+
+    return this.http.delete<RockAddType>(`${rockUrl}/${rockId}`, { headers });
+  }
 
 
   // LIKES ----------
