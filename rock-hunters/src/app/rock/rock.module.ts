@@ -6,12 +6,14 @@ import { RockDetailsComponent } from './rock-details/rock-details.component';
 import { RockRoutingModule } from './rock-routing-module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { RockEditComponent } from './rock-edit/rock-edit.component';
 
 @NgModule({
   declarations: [
     RockListComponent,
     RockAddComponent,
-    RockDetailsComponent
+    RockDetailsComponent,
+    RockEditComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,119 @@
+<div class="rock-edit">
+    <div class="content-wrap">
+        <!-- <h2 class="page-title divider">Edit</h2> -->
+
+        <section class="form-section">
+
+            <form class="rock-form" #form="ngForm">
+                <fieldset>
+                    <legend>Edit Rock</legend>
+
+                    <div class="form-group">
+                        <label for="name" class="required">Rock name</label>
+                        <input type="text" id="name" name="name" placeholder="Amber" required #inputName="ngModel"
+                            ngModel minlength="{{constraints.nameMinLength}}"
+                            maxlength="{{constraints.nameMaxLength}}" />
+                        <ng-container *ngIf="inputName.touched">
+                            <span *ngIf="inputName?.errors?.['required']" class="validation-span">
+                                Rock name is required.
+                            </span>
+                            <span *ngIf="inputName?.errors?.['minlength']" class="validation-span">
+                                Rock name must be between {{constraints.nameMinLength}} and
+                                {{constraints.nameMaxLength}} characters!
+                            </span>
+                        </ng-container>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imageUrl" class="required">Image link</label>
+                        <input type="text" id="imageUrl" name="imageUrl" placeholder="baltic_amber.jpg" required
+                            #inputImageUrl="ngModel" ngModel minlength="{{constraints.imageUrlMinLength}}"
+                            maxlength="{{constraints.imageUrlMaxLength}}" />
+                        <ng-container *ngIf="inputImageUrl.touched">
+                            <span *ngIf="inputImageUrl?.errors?.['required']" class="validation-span">Image Url is
+                                required.</span>
+                            <span *ngIf="inputImageUrl?.errors?.['minlength']" class="validation-span">Image Url
+                                must be between {{constraints.imageUrlMinLength}} and
+                                {{constraints.imageUrlMaxLength}} characters!</span>
+                        </ng-container>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="origin">Origin</label>
+                        <input type="text" id="origin" name="origin" placeholder="Poland / Baltic sea"
+                            #inputOrigin="ngModel" ngModel minlength="{{constraints.originMinLength}}"
+                            maxlength="{{constraints.originMaxLength}}" />
+                        <ng-container *ngIf="inputOrigin.touched">
+                            <span *ngIf="inputOrigin?.errors?.['minlength']" class="validation-span">Place of origin
+                                must be between {{constraints.originMinLength}} and
+                                {{constraints.originMaxLength}} characters!</span>
+                        </ng-container>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="length" class="required">Length (cm)</label>
+                        <input type="number" id="length" name="length" placeholder="5.4" required #inputLength="ngModel"
+                            ngModel min="{{constraints.lengthMinValue}}" max="{{constraints.lengthMaxValue}}" />
+                        <ng-container *ngIf="inputLength.touched">
+                            <span *ngIf="inputLength?.errors?.['required']" class="validation-span">Rock length is
+                                required.</span>
+                            <span *ngIf="inputLength?.errors?.['min'] || inputLength?.errors?.['max']"
+                                class="validation-span">Rock length must be
+                                between {{constraints.lengthMinValue}} and
+                                {{constraints.lengthMaxValue}}!</span>
+                        </ng-container>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="height" class="required">Height (cm)</label>
+                        <input type="number" id="height" name="height" placeholder="4" required #inputHeight="ngModel"
+                            ngModel min="{{constraints.heightMinValue}}" max="{{constraints.heightMaxValue}}" />
+                        <ng-container *ngIf="inputHeight.touched">
+                            <span *ngIf="inputHeight?.errors?.['required']" class="validation-span">Rock height is
+                                required.</span>
+                            <span *ngIf="inputHeight?.errors?.['min'] || inputLength?.errors?.['max']"
+                                class="validation-span">Rock height must be
+                                between {{constraints.heightMinValue}} and
+                                {{constraints.heightMaxValue}}!</span>
+                        </ng-container>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="width" class="required">Width (cm)</label>
+                        <input type="number" id="width" name="width" placeholder="3.7" required #inputWidth="ngModel"
+                            ngModel min="{{constraints.widthMinValue}}" max="{{constraints.widthMaxValue}}" />
+                        <ng-container *ngIf="inputWidth.touched">
+                            <span *ngIf="inputWidth?.errors?.['required']" class="validation-span">Rock width is
+                                required.</span>
+                            <span *ngIf="inputWidth?.errors?.['min'] || inputLength?.errors?.['max']"
+                                class="validation-span">Rock width must be
+                                between {{constraints.widthMinValue}} and
+                                {{constraints.widthMaxValue}}!</span>
+                        </ng-container>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight" class="required">weight (grams)</label>
+                        <input type="number" id="weight" name="weight" placeholder="17" required #inputWeight="ngModel"
+                            ngModel min="{{constraints.weightMinValue}}" max="{{constraints.weightMaxValue}}" />
+                        <ng-container *ngIf="inputWeight.touched">
+                            <span *ngIf="inputWeight?.errors?.['required']" class="validation-span">Rock weight is
+                                required.</span>
+                            <span *ngIf="inputWeight?.errors?.['min'] || inputLength?.errors?.['max']"
+                                class="validation-span">Rock weight must be
+                                between {{constraints.weightMinValue}} and
+                                {{constraints.weightMaxValue}}!</span>
+                        </ng-container>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="button sbm-btn" (click)="editRock(form)">Edit Rock</button>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </section>
+
+    </div>
+</div>

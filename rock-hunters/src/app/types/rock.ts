@@ -17,6 +17,19 @@ export interface Rock {
     }
 }
 
+export interface RockForEdit {
+    _id: string,
+    _ownerId: string,
+    name: string,
+    imageUrl: string,
+    origin: string,
+    length: number,
+    height: number,
+    width: number,
+    weight: number,
+    _createdOn: number,
+}
+
 export interface RockAddType {
     name: string,
     imageUrl: string,

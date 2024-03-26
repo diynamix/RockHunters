@@ -39,17 +39,17 @@
                 </div>
 
                 <table>
-                    <tr>
+                    <!-- <tr>
                         <td>Name:</td>
                         <td class="bold">{{rock.name}}</td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td>Origin:</td>
                         <td class="bold">{{rock.origin}}</td>
                     </tr>
                     <tr>
                         <td>Size:</td>
-                        <td class="bold">{{rock.length}} x {{rock.width}} x {{rock.height}} cm</td>
+                        <td class="bold">{{rock.length}} x {{rock.height}} x {{rock.width}} cm</td>
                     </tr>
                     <tr>
                         <td>Weight:</td>
@@ -59,7 +59,7 @@
 
                 <!-- if isOwner -->
                 <div *ngIf="isOwner" class="rock-details-btns">
-                    <a href="#" class="edit-btn button">Edit</a>
+                    <a routerLink="edit" class="edit-btn button">Edit</a>
                     <button onClick={deleteButtonClickHandler} class="delete-btn button">Delete</button>
                 </div>
             </div>

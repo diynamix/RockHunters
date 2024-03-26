@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { RockAddType, Rock } from './types/rock';
+import { RockAddType, Rock, RockForEdit } from './types/rock';
 import { Like } from './types/like';
 
 const { apiUrl } = environment;
@@ -39,15 +39,27 @@ export class ApiService {
     });
 
     return this.http.get<Rock>(`${rockUrl}/${rockId}?${query}`);
-};
+  };
 
-  createRock(rock : {}) {
+  getRockForEditByRockId(rockId: string) {  
+    return this.http.get<RockForEdit>(`${rockUrl}/${rockId}`);
+  };
+
+  createRock(rock: RockAddType) {
     const headers = this.getHeaders();
 
     const body = JSON.stringify(rock);
 
     return this.http.post<RockAddType>(rockUrl, body, { headers });
   }
+
+  editRock(rockId: String, rock: RockAddType) {
+    const headers = this.getHeaders();
+
+    const body = JSON.stringify(rock);
+
+    return this.http.put<RockAddType>(`${rockUrl}/${rockId}`, body, { headers });
+};
 
 
   // LIKES ----------

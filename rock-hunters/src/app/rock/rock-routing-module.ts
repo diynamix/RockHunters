@@ -3,26 +3,38 @@ import { RouterModule, Routes } from "@angular/router";
 import { AuthActivate } from "../guards/auth.activate";
 import { RockAddComponent } from "./rock-add/rock-add.component";
 import { RockDetailsComponent } from "./rock-details/rock-details.component";
+import { RockEditComponent } from "./rock-edit/rock-edit.component";
 import { RockListComponent } from "./rock-list/rock-list.component";
 
 
 const routes: Routes = [
-    { path: 'rocks', children: [
-        {
-            path: '',
-            pathMatch: 'full',
-            component: RockListComponent
-        },
-        {
-            path: 'add',
-            component: RockAddComponent,
-            canActivate: [AuthActivate]
-        },
-        // RockDetails path MUST stay after RockAdd path
-        {
-            path: ':rockId', component: RockDetailsComponent
-        },
-    ],
+    {
+        path: 'rocks', children: [
+            {
+                path: '',
+                pathMatch: 'full',
+                component: RockListComponent
+            },
+            {
+                path: 'add',
+                component: RockAddComponent,
+                canActivate: [AuthActivate]
+            },
+            {
+                path: ':rockId', children: [
+                    {
+                        path: '',
+                        pathMatch: 'full',
+                        component: RockDetailsComponent
+                    },
+                    {
+                        path: 'edit',
+                        component: RockEditComponent,
+                        canActivate: [AuthActivate]
+                    }
+                ]
+            },
+        ],
     },
 ];
 
