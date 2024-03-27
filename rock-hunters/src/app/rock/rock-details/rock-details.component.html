@@ -29,11 +29,17 @@
                             <i class="fas fa-heart"></i> {{likesCount}}
                         </ng-container>
                     </div>
+
                     <div class="rock-creator rock-details-creator">
                         <!-- if isOwner -->
-                        <!-- <a href="#">My rocks</a> -->
+                        <ng-container *ngIf="isOwner">
+                            <a routerLink="/rocks/my">My rocks</a>
+                        </ng-container>
                         <!-- else -->
-                        By <a href="#">{{rock.owner.username}}</a>
+                        <ng-container *ngIf="!isOwner">
+                            By <a routerLink="/rocks/by/{{rock._ownerId}}"
+                                [state]="{username: rock.owner.username}">{{rock.owner.username}}</a>
+                        </ng-container>
                     </div>
                 </div>
 

@@ -11,13 +11,13 @@ import { Rock } from '../../types/rock';
 export class RockListComponent implements OnInit {
   constructor(private apiService: ApiService, private userService: UserService) {}
   
-  isLiked = false;
+  // isLiked = false;
 
   rocks: Rock[] = [];
 
-  get isLoggedIn(): boolean {
-    return this.userService.isLogged;
-  }
+  // get isLoggedIn(): boolean {
+  //   return this.userService.isLogged;
+  // }
 
   get userId(): string {
     return this.userService.user?._id || '';

@@ -1,1 +1,33 @@
-<p>rock-by works!</p>
+<div class="all-rocks">
+
+    <div class="content-wrap">
+        <h2 class="page-title divider">{{username}}'s rocks</h2>
+
+        <section class="rock-list">
+
+            <!-- if any -->
+            <div *ngFor="let rock of rocks" class="rock-box">
+
+                <div class="rock-img-container">
+                    <a routerLink="/rocks/{{rock._id}}"><img src="../../assets/images/{{rock.imageUrl}}"
+                            class="rock-img" /></a>
+                </div>
+
+                <div class="rock-info">
+
+                    <div class="rock-name">
+                        <a routerLink="/rocks/{{rock._id}}">{{rock.name | slice : 15}}</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- if rocks.length === 0 -->
+            <div *ngIf="rocks.length === 0">
+                <p>No rocks to show!</p>
+            </div>
+
+        </section>
+    </div>
+</div>

@@ -32,11 +32,12 @@
                     <div class="rock-creator">
                         <!-- if isOwner -->
                         <ng-container *ngIf="isOwner(rock._ownerId)">
-                            <a href="#">My rocks</a>
+                            <a routerLink="/rocks/my">My rocks</a>
                         </ng-container>
                         <!-- else -->
                         <ng-container *ngIf="!isOwner(rock._ownerId)">
-                            By <a href="#">{{rock.owner.username}}</a>
+                            By <a routerLink="/rocks/by/{{rock._ownerId}}"
+                                [state]="{username: rock.owner.username}">{{rock.owner.username}}</a>
                         </ng-container>
                     </div>
 
