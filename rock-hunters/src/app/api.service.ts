@@ -33,6 +33,15 @@ export class ApiService {
     return this.http.get<Rock[]>(`${rockUrl}?${query}&sortBy=_createdOn%20desc`);
   }
 
+  getAllRocksByUserId(userId: string) {
+    const query = new URLSearchParams({
+        where: `_ownerId="${userId}"`,
+        load: `owner=_ownerId:users`,
+    });
+
+    return this.http.get<Rock[]>(`${rockUrl}?${query}&sortBy=_createdOn%20desc`);
+};
+
   getRockByRockId(rockId: string) {  
     const query = new URLSearchParams({
         load: `owner=_ownerId:users`,
@@ -40,19 +49,19 @@ export class ApiService {
 
     return this.http.get<Rock>(`${rockUrl}/${rockId}?${query}`);
   };
-
-  getRockForEditByRockId(rockId: string) {  
-    return this.http.get<RockForEdit>(`${rockUrl}/${rockId}`);
-  };
-
+  
   getFavouriteRocks(userId: string) {
     const query = new URLSearchParams({
-        where: `_ownerId="${userId}"`,
-        load: `rock=rockId:rocks`,
-        // sortBy: `_createdOn desc`
+      where: `_ownerId="${userId}"`,
+      load: `rock=rockId:rocks`,
+      // sortBy: `_createdOn desc`
     });
-
+    
     return this.http.get<RockFavouriteType>(`${likeUrl}?${query}&sortBy=_createdOn%20desc`);
+  };
+  
+  getRockForEditByRockId(rockId: string) {  
+    return this.http.get<RockForEdit>(`${rockUrl}/${rockId}`);
   };
 
   createRock(rock: RockAddType) {

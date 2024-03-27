@@ -1,6 +1,8 @@
 <div class="all-rocks">
 
     <div class="content-wrap">
+        <h2 class="page-title divider">{{username}}'s rocks</h2>
+
         <section class="rock-list">
 
             <!-- if any -->
@@ -17,25 +19,13 @@
                         <a routerLink="/rocks/{{rock._id}}">{{rock.name | slice : 15}}</a>
                     </div>
 
-                    <!-- <div class="rock-like">
-                        <form onSubmit={likeHandler}>
-                            <button type="submit" class="btn-unset">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                        </form>
-                    </div> -->
-
-                    <!-- <div class="rock-creator">
-                        By <a href="#">{{rock.owner.username}}</a>
-                    </div> -->
-
                 </div>
 
             </div>
 
             <!-- if rocks.length === 0 -->
             <div *ngIf="rocks.length === 0">
-                <p>No favourite rocks added yet!</p>
+                <p>You haven't added any rocks yet!</p>
             </div>
 
         </section>

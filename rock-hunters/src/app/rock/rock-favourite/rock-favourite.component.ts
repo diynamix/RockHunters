@@ -11,21 +11,21 @@ import { Rock } from '../../types/rock';
 export class RockFavouriteComponent implements OnInit {
   constructor(private apiService: ApiService, private userService: UserService) {}
   
-  isLiked = false;
+  // isLiked = false;
 
   rocks: Rock[] = [];
 
-  get isLoggedIn(): boolean {
-    return this.userService.isLogged;
-  }
+  // get isLoggedIn(): boolean {
+  //   return this.userService.isLogged;
+  // }
 
   get userId(): string {
     return this.userService.user?._id || '';
   }
 
-  isOwner(_ownerId: string) {
-    return this.userId === _ownerId;
-  }
+  // isOwner(_ownerId: string) {
+  //   return this.userId === _ownerId;
+  // }
   
   ngOnInit(): void {
     this.apiService.getFavouriteRocks(this.userId).subscribe((rocks) => {
