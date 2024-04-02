@@ -24,11 +24,13 @@
 
                     <div class="form-group">
                         <label for="email" class="form-label required">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" required
-                            formControlName="email" />
+                        <input (click)="clearEmailOk()" type="email" id="email" name="email" class="form-control"
+                            required formControlName="email" />
                         <ng-container *ngIf="form.get('email')?.touched">
                             <span *ngIf="form.get('email')?.errors?.['required']" class="validation-span">Email is
                                 required!</span>
+                            <span *ngIf="!(form.invalid) && !emailOk" class="validation-span">This email is
+                                already used!</span>
                         </ng-container>
                     </div>
 

@@ -26,7 +26,13 @@ export class RegisterComponent {
     return this.form.get('passGroup');
   }
 
+  emailOk = true;
+
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {}
+
+  clearEmailOk() {
+    this.emailOk = true;
+  }
 
   register(): void {
     if (this.form.invalid) {
@@ -39,9 +45,18 @@ export class RegisterComponent {
       return;
     }
 
-    this.userService.register(email!, password!, username!).subscribe((res) => {
-      localStorage.setItem('accessToken', res.accessToken!);
-      this.router.navigate(['/rocks']);
+    this.userService.register(email!, password!, username!)
+    .subscribe({
+      next: (res) => {
+        localStorage.setItem('accessToken', res.accessToken!);
+        this.router.navigate(['/rocks']);
+        this.emailOk = true;
+      },
+      error: (err) => {
+      },
+      complete: () => {
+        this.emailOk = false;
+      }
     });
   }
 }
