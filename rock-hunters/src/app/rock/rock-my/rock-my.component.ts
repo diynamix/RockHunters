@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user/user.service';
 import { ApiService } from '../../api.service';
-import { Rock } from '../../types/rock';
+import { RockType } from '../../types/rock';
 
 @Component({
   selector: 'app-rock-my',
@@ -11,7 +11,7 @@ import { Rock } from '../../types/rock';
 export class RockMyComponent implements OnInit {
   constructor(private apiService: ApiService, private userService: UserService) {}
 
-  rocks: Rock[] = [];
+  rocks: RockType[] = [];
 
   get userId(): string {
     return this.userService.user?._id || '';

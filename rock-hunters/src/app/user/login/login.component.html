@@ -36,11 +36,13 @@
                         <button id="login-submit" class="sbm-btn">Log in</button>
                     </div>
                 </fieldset>
+                <span *ngIf="!loginMatch" class="validation-span">Invalid email or password!</span>
 
                 <div class="login-register-switch">Don't have an account? Go to
                     <a routerLink="/auth/register" class="link">register</a>.
                 </div>
             </form>
+
 
         </section>
     </div>

@@ -16,19 +16,6 @@
                         <a [routerLink]="rock._id">{{rock.name | slice : 15}}</a>
                     </div>
 
-                    <!-- <div class="rock-like">
-                        if !isOwner && !isLiked && isLoggedIn
-                        <form *ngIf="!isOwner && !isLiked && isLoggedIn; else cantLike" onSubmit={likeHandler}>
-                            <button type="submit" class="btn-unset">
-                                <i class="fas fa-heart"></i> {{rock.likes}}
-                            </button>
-                        </form>
-                        else
-                        <ng-template #cantLike>
-                            <i class="fas fa-heart"></i> {{rock.likes}}
-                        </ng-template>
-                    </div> -->
-
                     <div class="rock-creator">
                         <!-- if isOwner -->
                         <ng-container *ngIf="isOwner(rock._ownerId)">

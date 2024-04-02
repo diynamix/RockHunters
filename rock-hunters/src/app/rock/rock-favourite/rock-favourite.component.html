@@ -17,16 +17,14 @@
                         <a routerLink="/rocks/{{rock._id}}">{{rock.name | slice : 15}}</a>
                     </div>
 
-                    <!-- <div class="rock-like">
-                        <form onSubmit={likeHandler}>
-                            <button type="submit" class="btn-unset">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                        </form>
-                    </div> -->
-
                     <!-- <div class="rock-creator">
-                        By <a href="#">{{rock.owner.username}}</a>
+                        <ng-container *ngIf="isOwner(rock._ownerId)">
+                            <a routerLink="/rocks/my">My rocks</a>
+                        </ng-container>
+                        <ng-container *ngIf="!isOwner(rock._ownerId)">
+                            By <a routerLink="/rocks/by/{{rock._ownerId}}"
+                                [state]="{username: rock.owner.username}">{{rock.owner.username}}</a>
+                        </ng-container>
                     </div> -->
 
                 </div>

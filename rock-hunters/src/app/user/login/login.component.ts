@@ -11,6 +11,8 @@ import { UserService } from '../user.service';
 export class LoginComponent {
   constructor(private userService: UserService, private router:Router) {}
 
+  loginMatch = true;
+
   login(form: NgForm) {
     if (form.invalid) {
       return;
@@ -18,9 +20,17 @@ export class LoginComponent {
 
     const {email, password} = form.value;
 
-    this.userService.login(email, password).subscribe((res) => {
-      localStorage.setItem('accessToken', res.accessToken!);
-      this.router.navigate(['/rocks']);
+    this.userService.login(email, password).subscribe({
+      next: (res) => {
+        localStorage.setItem('accessToken', res.accessToken!);
+        this.router.navigate(['/rocks']);
+        this.loginMatch = true;
+      },
+      error: (err) => {
+      },
+      complete: () => {
+        this.loginMatch = false;
+      }
     });
   }
 }

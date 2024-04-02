@@ -1,4 +1,4 @@
-export interface Rock {
+export interface RockWithOwnerType {
     _id: string,
     name: string,
     imageUrl: string,
@@ -16,7 +16,7 @@ export interface Rock {
     }
 }
 
-export interface RockForEdit {
+export interface RockType {
     _id: string,
     _ownerId: string,
     name: string,
@@ -29,7 +29,7 @@ export interface RockForEdit {
     _createdOn: number,
 }
 
-export interface RockAddType {
+export interface RockAddEditType {
     name: string,
     imageUrl: string,
     origin: string,

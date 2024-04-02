@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
-import { Rock } from 'src/app/types/rock';
+import { RockWithOwnerType } from 'src/app/types/rock';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class RockDetailsComponent implements OnInit {
     owner: {
         username: '',
     },
-  } as Rock;
+  } as RockWithOwnerType;
 
   likeId: string | undefined;
   likesCount = 0;

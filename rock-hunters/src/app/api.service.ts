@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { RockAddType, Rock, RockForEdit, RockFavouriteType } from './types/rock';
+import { RockAddEditType, RockWithOwnerType, RockType, RockFavouriteType } from './types/rock';
 import { Like } from './types/like';
 
 const { apiUrl } = environment;
@@ -30,24 +30,24 @@ export class ApiService {
         load: `owner=_ownerId:users`,
     });
    
-    return this.http.get<Rock[]>(`${rockUrl}?${query}&sortBy=_createdOn%20desc`);
+    return this.http.get<RockWithOwnerType[]>(`${rockUrl}?${query}&sortBy=_createdOn%20desc`);
   }
 
   getAllRocksByUserId(userId: string) {
     const query = new URLSearchParams({
         where: `_ownerId="${userId}"`,
-        load: `owner=_ownerId:users`,
+        // load: `owner=_ownerId:users`,
     });
 
-    return this.http.get<Rock[]>(`${rockUrl}?${query}&sortBy=_createdOn%20desc`);
-};
+    return this.http.get<RockType[]>(`${rockUrl}?${query}&sortBy=_createdOn%20desc`);
+  };
 
   getRockByRockId(rockId: string) {  
     const query = new URLSearchParams({
         load: `owner=_ownerId:users`,
     });
 
-    return this.http.get<Rock>(`${rockUrl}/${rockId}?${query}`);
+    return this.http.get<RockWithOwnerType>(`${rockUrl}/${rockId}?${query}`);
   };
   
   getFavouriteRocks(userId: string) {
@@ -61,29 +61,29 @@ export class ApiService {
   };
   
   getRockForEditByRockId(rockId: string) {  
-    return this.http.get<RockForEdit>(`${rockUrl}/${rockId}`);
+    return this.http.get<RockType>(`${rockUrl}/${rockId}`);
   };
 
-  createRock(rock: RockAddType) {
+  createRock(rock: RockAddEditType) {
     const headers = this.getHeaders();
 
     const body = JSON.stringify(rock);
 
-    return this.http.post<RockAddType>(rockUrl, body, { headers });
+    return this.http.post<RockAddEditType>(rockUrl, body, { headers });
   }
 
-  editRock(rockId: String, rock: RockAddType) {
+  editRock(rockId: String, rock: RockAddEditType) {
     const headers = this.getHeaders();
 
     const body = JSON.stringify(rock);
 
-    return this.http.put<RockAddType>(`${rockUrl}/${rockId}`, body, { headers });
+    return this.http.put<RockAddEditType>(`${rockUrl}/${rockId}`, body, { headers });
   };
 
   deleteRock(rockId: string) {
     const headers = this.getHeaders();
 
-    return this.http.delete<RockAddType>(`${rockUrl}/${rockId}`, { headers });
+    return this.http.delete<RockAddEditType>(`${rockUrl}/${rockId}`, { headers });
   }
 
 

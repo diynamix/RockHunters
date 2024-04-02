@@ -15,8 +15,6 @@ export class RockAddComponent {
   constructor(private apiService: ApiService, private router: Router) {}
   
   addRock(form: NgForm) {
-    // event.preventDefault();
-
     if (form.invalid) {
       return;
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user/user.service';
 import { ApiService } from '../../api.service';
-import { Rock } from '../../types/rock';
+import { RockType } from '../../types/rock';
 
 @Component({
   selector: 'app-rock-favourite',
@@ -10,22 +10,16 @@ import { Rock } from '../../types/rock';
 })
 export class RockFavouriteComponent implements OnInit {
   constructor(private apiService: ApiService, private userService: UserService) {}
-  
-  // isLiked = false;
 
-  rocks: Rock[] = [];
-
-  // get isLoggedIn(): boolean {
-  //   return this.userService.isLogged;
-  // }
+  rocks: RockType[] = [];
 
   get userId(): string {
     return this.userService.user?._id || '';
   }
 
-  // isOwner(_ownerId: string) {
-  //   return this.userId === _ownerId;
-  // }
+  isOwner(_ownerId: string) {
+    return this.userId === _ownerId;
+  }
   
   ngOnInit(): void {
     this.apiService.getFavouriteRocks(this.userId).subscribe((rocks) => {

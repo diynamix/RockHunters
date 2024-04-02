@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../api.service';
-import { Rock } from '../../types/rock';
+import { RockType } from '../../types/rock';
 
 @Component({
   selector: 'app-rock-by',
@@ -16,7 +16,7 @@ export class RockByComponent implements OnInit {
 
   ownerId = '';
   username = '';
-  rocks: Rock[] = [];
+  rocks: RockType[] = [];
   
   ngOnInit(): void {
     this.activeRoute.params.subscribe((data) => {
