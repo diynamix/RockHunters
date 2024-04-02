@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from 'src/app/user/user.service';
 import { ApiService } from '../../api.service';
 import { Rock } from '../../types/rock';
 
@@ -9,8 +8,8 @@ import { Rock } from '../../types/rock';
   templateUrl: './rock-by.component.html',
   styleUrls: ['./rock-by.component.css']
 })
-export class RockByComponent {
-  constructor(private apiService: ApiService, private userService: UserService, private activeRoute: ActivatedRoute, private router: Router) {
+export class RockByComponent implements OnInit {
+  constructor(private apiService: ApiService, private activeRoute: ActivatedRoute, private router: Router) {
     const data = this.router.getCurrentNavigation()?.extras.state;
     this.username = data!['username'];
   }

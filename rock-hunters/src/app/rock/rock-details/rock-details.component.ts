@@ -16,6 +16,7 @@ export class RockDetailsComponent implements OnInit {
         username: '',
     },
   } as Rock;
+
   likeId: string | undefined;
   likesCount = 0;
 
@@ -28,6 +29,14 @@ export class RockDetailsComponent implements OnInit {
   get isOwner(): boolean {
     return this.userId === this.rock._ownerId;
   }
+
+  get isLiked(): boolean {
+    return !!(this.likeId);
+  }
+
+  get likes(): number {
+    return this.likesCount;
+  }
   
   get userId(): string {
     return this.userService.user?._id || '';
@@ -38,28 +47,18 @@ export class RockDetailsComponent implements OnInit {
       return;
     }
 
-    try {
-        if (!this.likeId) {
-          this.apiService.like(this.rock._id).subscribe();
-        } else {
-          this.apiService.unlike(this.likeId).subscribe();
-        }
-
-        this.setLikes();
-    } catch (err) {
-        alert('Error. Please try again.');
+    if (!this.likeId) {
+      this.apiService.like(this.rock._id).subscribe((data) => {
+        this.likeId = data._id;
+        this.likesCount++;
+      });
+    } else {
+      this.apiService.unlike(this.likeId).subscribe(() => {
+        this.likeId = undefined;
+        this.likesCount--;
+      });
     }
   };
-
-  setLikes() {
-    this.apiService.getLikeId(this.userId, this.rock._id).subscribe((likes) => {
-      this.likeId = likes.find(like => like?._ownerId === this.userId)?._id;
-    });
-    
-    this.apiService.getAllLikesByRockId(this.rock._id).subscribe((likesCount) => {
-      this.likesCount = likesCount
-    });
-  }
 
   delete() {
     const hasConfirmed = confirm(`Are you sure you want to delete ${this.rock.name}`);
@@ -69,7 +68,6 @@ export class RockDetailsComponent implements OnInit {
       this.router.navigate(['/rocks']);
     }
   }
-
   
   ngOnInit(): void {
     this.activeRoute.params.subscribe((data) => {
@@ -77,7 +75,14 @@ export class RockDetailsComponent implements OnInit {
       
       this.apiService.getRockByRockId(rockId).subscribe((rock) => {
         this.rock = rock;
-        this.setLikes();
+
+        this.apiService.getLikeId(this.userId, this.rock._id).subscribe((likes) => {
+          this.likeId = likes.find(like => like?._ownerId === this.userId)?._id;
+        });
+        
+        this.apiService.getAllLikesByRockId(this.rock._id).subscribe((likesCount) => {
+          this.likesCount = likesCount
+        });
       });
     });
   }

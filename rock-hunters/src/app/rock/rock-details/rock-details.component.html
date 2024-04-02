@@ -14,19 +14,15 @@
                     <div class="rock-like rock-details-like">
                         <!-- if isLoggedIn && !isOwner -->
                         <ng-container *ngIf="isLoggedIn && !isOwner">
-                            <!-- if likeId -->
-                            <button *ngIf="likeId" type="submit" (click)="likeHandler()" class="liked btn-unset">
-                                <i class="fas fa-heart"></i> {{likesCount}}
-                            </button>
-                            <!-- else -->
-                            <button *ngIf="!likeId" type="submit" (click)="likeHandler()" class="btn-unset">
-                                <i class="fas fa-heart"></i> {{likesCount}}
+                            <button [ngClass]="{'liked': isLiked}" type="submit" (click)="likeHandler()"
+                                class="liked btn-unset">
+                                <i class="fas fa-heart"></i> {{likes}}
                             </button>
                         </ng-container>
 
                         <!-- else -->
                         <ng-container *ngIf="!(isLoggedIn && !isOwner)">
-                            <i class="fas fa-heart"></i> {{likesCount}}
+                            <i class="fas fa-heart"></i> {{likes}}
                         </ng-container>
                     </div>
 
