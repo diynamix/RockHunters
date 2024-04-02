@@ -1341,29 +1341,17 @@
     };
     var seedData = {
         rocks: {
-            "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
-                _id: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
-                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-                name: "Baltic amber",
-                imageUrl: "baltic_amber.jpg",
-                origin: "Baltic region, Poland",
+            "004729e7-a074-4fe2-a504-9bd2a1167e16": {
+                _id: "004729e7-a074-4fe2-a504-9bd2a1167e16",
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                name: "Malachite",
+                imageUrl: "velvet_malachite.jpg",
+                origin: "China",
                 length: 5,
-                height: 4,
-                width: 3,
-                weight: 12,
+                height: 3,
+                width: 2,
+                weight: 45,
                 _createdOn: 1709539923000
-            },
-            "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
-                _id: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
-                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-                name: "Native copper",
-                imageUrl: "native_copper.jpg",
-                origin: "Africa",
-                length: 6,
-                height: 4.7,
-                width: 1.5,
-                weight: 56,
-                _createdOn: 1709540157000
             },
             "985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
                 _id: "985d9eab-ad2e-4622-a5c8-116261fb1fd2",
@@ -1375,18 +1363,30 @@
                 height: 7,
                 width: 5,
                 weight: 13,
+                _createdOn: 1709540157000
+            },
+            "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
+                _id: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                name: "Native copper",
+                imageUrl: "native_copper.jpg",
+                origin: "Africa",
+                length: 6,
+                height: 4.7,
+                width: 1.5,
+                weight: 56,
                 _createdOn: 1709657061000
             },
-            "004729e7-a074-4fe2-a504-9bd2a1167e16": {
-                _id: "004729e7-a074-4fe2-a504-9bd2a1167e16",
-                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-                name: "Malachite",
-                imageUrl: "velvet_malachite.jpg",
-                origin: "China",
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
+                _id: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                name: "Baltic amber",
+                imageUrl: "baltic_amber.jpg",
+                origin: "Baltic region, Poland",
                 length: 5,
-                height: 3,
-                width: 2,
-                weight: 45,
+                height: 4,
+                width: 3,
+                weight: 12,
                 _createdOn: 1709659096000
             }
         },
